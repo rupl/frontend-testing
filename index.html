@@ -138,7 +138,7 @@
 
         <section>
           <section>
-            <h2>Automating Yslow</h2>
+            <h2>Automating YSlow</h2>
             <br>
             <p class="fragment"><a href="http://developer.yahoo.com/yslow/">YSlow</a> is a service that grades frontend performance based on many tried and true facets. Developed at Yahoo! when they were the kings of perf.</p>
             <br>
@@ -167,14 +167,20 @@ phantomjs yslow.js -i basic -f plain http://example.com
           <section>
             <h2>Automating PageSpeed</h2>
             <br>
-            <p class="fragment">Not to be outdone by Yahoo, Google has a competing service called <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</p>
+            <p class="fragment">Not to be outdone by Yahoo, Google has a<br> competing service called <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</p>
             <br>
-            <p class="fragment">It can also be automated, but only<br> through <a href="https://developers.google.com/speed/pagespeed/service">integration with their service</a>.<br> Currently requires signup on a <a href="https://docs.google.com/a/google.com/forms/d/1lX5ixIANZtE23UXxHYORa-tm_HwW6c6wxDkW-0rUDSE/viewform">waiting list</a>.</p>
-            <br>
-            <p class="fragment">Once you're in, check out <a href="https://github.com/jrcryer/grunt-pagespeed">grunt-pagespeed</a><br> to easily integrate into your workflow or CI.</p>
+            <p class="fragment">
+              It can also be automated, by <a href="https://developers.google.com/speed/docs/insights/v1/getting_started#auth">getting an API key</a> or signing up for <a href="https://developers.google.com/speed/pagespeed/service">PageSpeed service</a>.
+              <br><br>
+              The service requires signup on a <a href="https://docs.google.com/a/google.com/forms/d/1lX5ixIANZtE23UXxHYORa-tm_HwW6c6wxDkW-0rUDSE/viewform">waiting list</a>.
+            </p>
           </section>
           <section>
-            <pre><code class="language-javascript">// code TBD</code></pre>
+            <h2>grunt-pagespeed</h2>
+            <br>
+            <p><a href="https://developers.google.com/speed/docs/insights/v1/getting_started">PageSpeed API</a> is documented quite<br> thoroughly, but there's also a <a href="https://github.com/jrcryer/grunt-pagespeed">grunt plugin</a>.</p>
+            <br>
+            <pre><code class="language-bash"># examples/grunt/google-pagespeed</code></pre>
           </section>
         </section>
 
