@@ -210,15 +210,13 @@ body {
 .reveal pre {
 	display: block;
 	position: relative;
+  width: 130%;
+  left: -15%;
+  font-size: .8em;
 }
 .reveal code {
   background: #272822;
 	font-family: monospace;
-}
-.reveal pre.xl {
-  width: 130%;
-  margin-left: -15%;
-  font-size: .8em;
 }
 
 

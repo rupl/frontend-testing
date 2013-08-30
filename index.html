@@ -133,20 +133,24 @@
             <p class="fragment">It delivers A-F on the various tests, but historically required the user to visit each page in a browser.</p>
           </section>
           <section>
-            <pre class="xl"><code class="language-bash"># install waterfall viewer (ruby)
-$ gem install har
-
-# capture a HAR file from the CLI
+            <pre><code class="language-bash"># capture a HAR file from the CLI
 $ phantomjs examples/netsniff.js http://example.com/ > ex.har
 
-# view results in browser
-$ har ex.har
-
-# run YSlow on the waterfall
+# install/run YSlow on the waterfall (node.js)
 $ npm install yslow -g
 $ yslow --info basic --format plain ex.har
 </code></pre>
             <small>Code compliments of <a href="http://www.igvita.com/slides/2012/devtools-tips-and-tricks/#11">Ilya Grigorik</a></small>
+          </section>
+          <section>
+            <h2>YSlow for Phantom</h2>
+            <p><a href="http://yslow.org/phantomjs/">YSlow also has a phantomjs package</a></p>
+            <br>
+            <pre><code class="language-bash"># same task as the previous slide, sans node.js
+phantomjs yslow.js -i basic -f plain http://example.com
+</code></pre>
+            <br>
+            <p class="fragment"><b>Warning:</b> I have found <a href="https://gist.github.com/rupl/6392257">significant differences</a> between node yslow and phantomjs/yslow.js on even the simplest of operations (this example included).</p>
           </section>
         </section>
 
