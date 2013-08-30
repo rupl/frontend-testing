@@ -74,7 +74,7 @@
           <h2>Differences from DevOps</h2>
           <section>
             <br>
-            <p class="fragment">If you're familiar with DevOps, this is not new.</p>
+            <p class="fragment">None: if you're familiar with DevOps, this is <strong>not</strong> new.</p>
             <br>
             <p class="fragment">However, since frontend is a different game than backend, its operational needs are slightly different.</p>
           </section>
@@ -107,10 +107,54 @@
         </section>
 
         <section data-state="blackout">
+          <section>
+            <h1>Automated Testing</h1>
+          </section>
+          <section>
+            <h2>The Basics</h2>
+            <br>
+            <p class="fragment">Everything outlined in this section<br> requires two key ingredients:</p>
+            <br>
+            <ul class="fragment">
+              <li>Continuous integration (CI)</li>
+              <li><a href="http://git-scm.com/book/ch7-3.html">Git hooks</a></li>
+            </ul>
+            <br><br>
+            <p class="fragment">Four Kitchens uses <a href="http://jenkins-ci.org/">Jenkins</a> and <a href="https://help.github.com/articles/post-receive-hooks">GitHub WebHooks</a><br> in our workflow, and you can use whatever you wish.</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Automating Yslow</h2>
+            <br>
+            <p class="fragment"><a href="http://developer.yahoo.com/yslow/">YSlow</a> is a service that grades frontend performance based on many tried and true facets. Developed at Yahoo! when they were the kings of perf.</p>
+            <br>
+            <p class="fragment">It delivers A-F on the various tests, but historically required the user to visit each page in a browser.</p>
+          </section>
+          <section>
+            <pre class="xl"><code class="language-bash"># install waterfall viewer (ruby)
+$ gem install har
+
+# capture a HAR file from the CLI
+$ phantomjs examples/netsniff.js http://example.com/ > ex.har
+
+# view results in browser
+$ har ex.har
+
+# run YSlow on the waterfall
+$ npm install yslow -g
+$ yslow --info basic --format plain ex.har
+</code></pre>
+            <small>Code compliments of <a href="http://www.igvita.com/slides/2012/devtools-tips-and-tricks/#11">Ilya Grigorik</a></small>
+          </section>
+        </section>
+
+        <section data-state="blackout">
           <h1>Questions?</h1>
           <br>
           <p>Contact me:</p>
-          <p><a href="http://drupal.org/user/411999">drupal.org/user/411999</a></p>
+          <p><a href="https://drupal.org/user/411999">drupal.org/user/411999</a></p>
           <p><a href="https://github.com/rupl">github.com/rupl</a></p>
           <p><a href="http://twitter.com/rupl">twitter.com/rupl</a></p>
           <p>chris &#x2740; fourkitchens.com</p>
