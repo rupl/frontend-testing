@@ -74,7 +74,7 @@
           <h2>Differences from DevOps</h2>
           <section>
             <br>
-            <p class="fragment">None: if you're familiar with DevOps, this is <strong>not</strong> new.</p>
+            <p class="fragment">None: if you're familiar with DevOps, this is <strong style="font-size: 1.4em;">not</strong> new.</p>
             <br>
             <p class="fragment">However, since frontend is a different game than backend, its operational needs are slightly different.</p>
           </section>
@@ -82,13 +82,15 @@
             <br>
             <p>Often, a PHP error results in a 500 or<br> blank page. You either get HTML or not.</p>
             <br>
-            <p class="fragment">There are untold number of more subtle<br> errors that can occur on the frontend.</p>
+            <p class="fragment">There are untold number of subtle<br> errors that can occur on the frontend.</p>
+          </section>
+          <section>
             <br>
-            <ul class="fragment">
+            <ul>
               <li>Minor CSS changes that throw things off</li>
-              <li>Changes to JS files that break things</li>
-              <li>Aggregates changing when not necessary</li>
-              <li>Performance regressions</li>
+              <li class="fragment">Changes to JS files that break things</li>
+              <li class="fragment">Aggregates changing when not necessary</li>
+              <li class="fragment">Performance regressions<br><br></li>
             </ul>
           </section>
           <section>
@@ -108,13 +110,21 @@
 
         <section>
           <section>
+            <h2>Frontend Ops</h2>
+            <h3>a detailed description</h3>
+            <br>
+            <p class="fragment" style="width: 120%; margin-left: -10%; ">Alex Sexton (of Alex Sexton fame) wrote an article for<br> Smashing Mag describing the <a href="http://www.smashingmagazine.com/2013/06/11/front-end-ops/">ideal frontend ops engineer</a>.</p>
+            <br>
+            <p class="fragment">Most people are using Drupal to build websites instead of webapps, so this presentation will cover useful tasks for website development.</p>
+          </section>
+          <section>
             <h2>workflow_alter()</h2>
             <br>
             <p>In order to deliver the best, fastest site possible, we have to change our development processes.</p>
             <br>
             <blockquote class="fragment" cite="http://www.igvita.com/slides/2013/io-pagespeed.pdf"><q>Performance is not a checklist, it's a<br> <strong>continuous</strong> process.</q> — <a href="http://www.igvita.com/slides/2013/io-pagespeed.pdf">Ilya Grigorik</a></blockquote>
             <br>
-            <blockquote class="fragment" cite="http://www.netmagazine.com/features/speeding-mobile-html5-experiences"><q>&hellip;don’t take measures without measuring them</q><br> — <a href="http://www.netmagazine.com/features/speeding-mobile-html5-experiences">Maximiliano Firtman</a></blockquote>
+            <blockquote class="fragment" cite="http://www.netmagazine.com/features/speeding-mobile-html5-experiences"><q>&hellip;don’t take measures without measuring them.</q><br> — <a href="http://www.netmagazine.com/features/speeding-mobile-html5-experiences">Maximiliano Firtman</a></blockquote>
           </section>
         </section>
 
