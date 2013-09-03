@@ -108,7 +108,7 @@
           </section>
         </section>
 
-        <section>
+        <section data-state="soothe">
           <section>
             <h2>Frontend Ops</h2>
             <h3>a detailed description</h3>
@@ -128,21 +128,41 @@
           </section>
         </section>
 
+        <section>
+            <h1>YES</h1>
+            <br>
+            <p class="fragment">The slides AND code are on GitHub, I will tweet the link, and it's already available on the session page of the DrupalCon site. Yes, you may <a href="https://github.com/rupl/frontend-ops/blob/master/LICENSE">take code from the slides</a> and use it for any purpose :)</p>
+        </section>
+
         <section data-state="blackout">
           <section>
-            <h1>Automated Testing</h1>
+            <h1>Automating Your Tasks</h1>
           </section>
           <section>
-            <h2>The Basics</h2>
+            <h2>Stop doing manual labor</h2>
             <br>
-            <p class="fragment">Everything outlined in this section<br> requires two key ingredients:</p>
+            <p class="fragment">We all have to do repetitive tasks. Let's take the pain out of the process and focus on our actual work.</p>
             <br>
-            <ul class="fragment">
-              <li>Continuous integration (CI)</li>
-              <li><a href="http://git-scm.com/book/ch7-3.html">Git hooks</a></li>
-            </ul>
-            <br><br>
-            <p class="fragment">Four Kitchens uses <a href="http://jenkins-ci.org/">Jenkins</a> and <a href="https://help.github.com/articles/post-receive-hooks">GitHub WebHooks</a><br> in our workflow, and you can use whatever you wish.</p>
+            <p class="fragment">Automation helps us stay consistent.</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Grunt</h2>
+            <br>
+            <p class="fragment">Grunt is a "JavaScript task runner"</p>
+            <br>
+            <p class="fragment">It does grunt work for you.</p>
+            <br>
+            <p class="fragment"><a href="http://gruntjs.com">Read about Grunt.js and get the code</a>.</p>
+          </section>
+          <section>
+            <h3>Basics of Grunt</h3>
+            <br>
+            <p>Grunt has a thriving community that offers<br> plugins just like Drupal modules.</p>
+            <br>
+            <p class="fragment">They have excellent <a href="http://gruntjs.com/getting-started">intro instructions</a>,<br> and these slides contain <a href="https://github.com/rupl/frontend-ops/tree/master/examples">several examples</a> too.</p>
           </section>
         </section>
 
@@ -194,6 +214,37 @@ phantomjs yslow.js -i basic -f plain http://example.com
             <br>
             <small><a href="https://github.com/rupl/frontend-ops/tree/master/examples/grunt/pagespeed">View code on GitHub</a></small>
           </section>
+        </section>
+
+        <section data-state="blackout">
+          <section>
+            <h1>Automating Tasks with CI</h1>
+          </section>
+          <section>
+            <h2>The Basics</h2>
+            <br>
+            <p class="fragment">Everything outlined in this section<br> requires two key ingredients:</p>
+            <br>
+            <ul class="fragment">
+              <li>Continuous integration (CI)</li>
+              <li><a href="http://git-scm.com/book/ch7-3.html">Git hooks</a></li>
+            </ul>
+            <br><br>
+            <p class="fragment">Four Kitchens uses <a href="http://jenkins-ci.org/">Jenkins</a> and <a href="https://help.github.com/articles/post-receive-hooks">GitHub WebHooks</a><br> in our workflow, and you can use whatever you wish.</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Trigger Jenkins builds<br> by pushing to GitHub</h2>
+          <br>
+          <p class="fragment">An oldie but goodie: <a href="http://fourkitchens.com/blog/2011/09/20/trigger-jenkins-builds-pushing-github">check out our how-to from 2011</a></p>
+          <br>
+          <ol class="fragment">
+            <li>You push to GitHub master branch (or merge PR)</li>
+            <li>GitHub sends a message to your CI server</li>
+            <li>"The repository was updated!"</li>
+            <li>CI server pulls the new code to your staging area</li>
+          </ol>
         </section>
 
         <section data-state="blackout">
