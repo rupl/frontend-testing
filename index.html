@@ -131,7 +131,7 @@
         <section>
             <h1>YES</h1>
             <br>
-            <p class="fragment">The slides AND code are on GitHub, I will tweet the link, and it's already available on the session page of the DrupalCon site. Yes, you may <a href="https://github.com/rupl/frontend-ops/blob/master/LICENSE">take code from the slides</a> and use it for any purpose :)</p>
+            <p class="fragment">The slides AND code are on GitHub, I will tweet the link, and it's already available on the session page of the DrupalCon site. Yes, you may <a href="https://github.com/rupl/frontend-ops/blob/master/LICENSE.md">take code from the slides</a> and use it for any purpose :)</p>
         </section>
 
         <section data-state="blackout">
@@ -149,7 +149,10 @@
 
         <section>
           <section>
-            <h2>Grunt</h2>
+            <h2>Automation Tools</h2>
+          </section>
+          <section>
+            <h3>Grunt</h3>
             <br>
             <p class="fragment">Grunt is a "JavaScript task runner"</p>
             <br>
@@ -164,9 +167,32 @@
             <br>
             <p class="fragment">They have excellent <a href="http://gruntjs.com/getting-started">intro instructions</a>,<br> and these slides contain <a href="https://github.com/rupl/frontend-ops/tree/master/examples">several examples</a> too.</p>
           </section>
+          <section>
+            <h3>PhantomJS</h3>
+            <br>
+            <p>Headless instance of WebKit</p>
+            <br>
+            <p class="fragment">Phantom does everything a webkit browser can do, except there's no monitor. It <em>CAN</em> produce visual pages on command.</p>
+            <br>
+            <p class="fragment">It's an indispensible tool for automating tasks that require loading up a web page and doing something (screenshots, window resizes, etc)</p>
+            <br>
+            <p class="fragment"><a href="http://phantomjs.org/">PhantomJS docs</a></p>
+          </section>
+          <section>
+            <h3>SlimerJS</h3>
+            <br>
+            <p class="fragment">(not yet) headless instance of Gecko</p>
+            <br>
+            <p class="fragment">SlimerJS is a newer project than Phantom, but it aims to offer the same features to Firefox browser/OS users.</p>
+            <br>
+            <p class="fragment"><a href="http://slimerjs.org/">SlimerJS docs</a></p>
+          </section>
         </section>
 
         <section>
+          <section>
+            <h2>Performance Testing</h2>
+          </section>
           <section>
             <h2>Automating YSlow</h2>
             <br>
@@ -242,9 +268,36 @@ phantomjs yslow.js -i basic -f plain http://example.com
           <ol class="fragment">
             <li>You push to GitHub master branch (or merge PR)</li>
             <li>GitHub sends a message to your CI server</li>
-            <li>"The repository was updated!"</li>
+            <li>"Yo Jenkins, the repository was updated!"</li>
             <li>CI server pulls the new code to your staging area</li>
           </ol>
+        </section>
+
+        <section>
+          <section>
+            <h2>Wraith: CSS Regression testing</h2>
+            <br>
+            <p class="fragment">CSS regressions? say it ain't so!</p>
+            <br>
+            <p class="fragment">Having no scope at all, CSS is the easiest thing to nudge out of place. It's easier to prevent than you think.</p>
+          </section>
+          <section>
+            <h3>Installing Wraith</h3>
+            <br>
+            <pre><code class="language-bash"># examples/wraith
+$ ./install.sh
+</code></pre>
+          </section>
+          <section>
+            <h3>Multiple tests</h3>
+            <br>
+            <p>Wraith handles one comparison per config file.</p>
+            <p class="fragment">However, support for multiple configs is being added, so storing several config files in one repo allows for multiple comparisons.</p>
+            <br>
+            <pre class="fragment"><code class="language-bash">$ rake config['homepage']</code></pre>
+            <br>
+            <small class="fragment"><a href="https://github.com/BBC-News/wraith/pull/41">View discussion on GitHub</a></a></small>
+          </section>
         </section>
 
         <section data-state="blackout">
