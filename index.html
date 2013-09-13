@@ -292,11 +292,11 @@ $ ./install.sh
             <h3>Multiple tests</h3>
             <br>
             <p>Wraith handles one comparison per config file.</p>
-            <p class="fragment">However, support for multiple configs is being added, so storing several config files in one repo allows for multiple comparisons.</p>
             <br>
-            <pre class="fragment"><code class="language-bash">$ rake config['homepage']</code></pre>
+            <p class="fragment">However, it has support for multiple configs, so several config files in one repo allows for multiple comparisons.</p>
             <br>
-            <small class="fragment"><a href="https://github.com/BBC-News/wraith/pull/41">View discussion on GitHub</a></a></small>
+            <pre class="fragment"><code class="language-bash">$ cd /path/to/wraith/configs
+$ rake config[homepage]</code></pre>
           </section>
         </section>
 
