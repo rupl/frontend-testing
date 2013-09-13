@@ -138,7 +138,7 @@
 
         <section data-state="blackout">
           <section>
-            <h1>Automating Your Tasks</h1>
+            <h1>Automating Workflow</h1>
           </section>
           <section>
             <h2>Stop doing manual labor</h2>
@@ -228,7 +228,7 @@ phantomjs yslow.js -i basic -f plain http://example.com
             <p class="fragment">Not to be outdone by Yahoo, Google has a<br> competing service called <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</p>
             <br>
             <p class="fragment">
-              It can also be automated, by <a href="https://developers.google.com/speed/docs/insights/v1/getting_started#auth">getting an API key</a> or signing up for <a href="https://developers.google.com/speed/pagespeed/service">PageSpeed service</a>.
+              It can also be automated, by <a href="https://developers.google.com/speed/docs/insights/v1/getting_started#auth">getting an API key</a><br> or signing up for <a href="https://developers.google.com/speed/pagespeed/service">PageSpeed service</a>.
               <br><br>
               The service requires signup on a <a href="https://docs.google.com/a/google.com/forms/d/1lX5ixIANZtE23UXxHYORa-tm_HwW6c6wxDkW-0rUDSE/viewform">waiting list</a>.
             </p>
@@ -238,7 +238,10 @@ phantomjs yslow.js -i basic -f plain http://example.com
             <br>
             <p><a href="https://developers.google.com/speed/docs/insights/v1/getting_started">PageSpeed API</a> is documented quite<br> thoroughly, but there's also a <a href="https://github.com/jrcryer/grunt-pagespeed">grunt plugin</a>.</p>
             <br>
-            <pre><code class="language-bash"># examples/grunt/pagespeed</code></pre>
+            <pre><code class="language-bash"># examples/grunt/pagespeed
+$ npm install
+$ grunt # runs default task
+$ grunt pagespeed:mobile # runs mobile task</code></pre>
             <br>
             <small><a href="https://github.com/rupl/frontend-ops/tree/master/examples/grunt/pagespeed">View code on GitHub</a></small>
           </section>
@@ -285,13 +288,17 @@ phantomjs yslow.js -i basic -f plain http://example.com
             <p class="fragment">CSS regressions? say it ain't so!</p>
             <br>
             <p class="fragment">Having no scope at all, CSS is the easiest thing to nudge out of place. It's easier to prevent than you think.</p>
+            <br>
+            <p class="fragment">Wraith uses either Phantom or Slimer (your choice) to take screenshots of two environments, producing a visual diff of the two screenshots!</p>
           </section>
           <section>
-            <h3>Installing Wraith</h3>
+            <h3>Basic usage of Wraith</h3>
             <br>
             <pre><code class="language-bash"># examples/wraith
 $ ./install.sh
-</code></pre>
+$ cd wraith
+$ rake # runs their example against bbc.co.uk
+$ open shots/gallery.html # view results in the browser</code></pre>
           </section>
           <section>
             <h3>Multiple tests</h3>
