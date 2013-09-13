@@ -247,6 +247,41 @@ $ grunt pagespeed:mobile # runs mobile task</code></pre>
           </section>
         </section>
 
+        <section>
+          <section>
+            <h2>CSS Regression testing</h2>
+            <br>
+            <p class="fragment">CSS regressions? say it ain't so!</p>
+            <br>
+            <p class="fragment">Having no scope at all, CSS is the easiest thing to nudge out of place. It's easier to prevent than you think.</p>
+          </section>
+          <section>
+            <h2>Wraith</h2>
+            <p class="fragment">Wraith uses either Phantom or Slimer (your choice) to take screenshots of two environments, producing a visual diff of the two screenshots!</p>
+            <img class="fragment" src="https://github-camo.global.ssl.fastly.net/189a0458120b8dff072ec77df204f3d6aaf63986/687474703a2f2f6262632d6e6577732e6769746875622e696f2f7772616974682f696d616765732f3332305f646966662e706e67">
+          </section>
+          <section>
+            <h3>Basic usage of Wraith</h3>
+            <br>
+            <pre><code class="language-bash"># examples/wraith
+$ ./install.sh
+$ cd wraith
+$ rake # runs their example against bbc.co.uk
+$ open shots/gallery.html # view results in the browser</code></pre>
+          </section>
+          <section>
+            <h3>Multiple tests</h3>
+            <br>
+            <p>Wraith handles one comparison per config file.</p>
+            <br>
+            <p class="fragment">However, it has support for multiple configs, so several config files in one repo allows for multiple comparisons.</p>
+            <br>
+            <pre class="fragment"><code class="language-bash">$ cd /path/to/wraith/configs
+$ rake config[homepage]
+$ rake config[dashboard]</code></pre>
+          </section>
+        </section>
+
         <section data-state="blackout">
           <section>
             <h1>Automating Tasks with CI</h1>
@@ -279,37 +314,6 @@ $ grunt pagespeed:mobile # runs mobile task</code></pre>
           <br>
           <br>
           <p class="fragment">Although fairly mundane in terms of CI, the blog post illustrates the basic concepts underlying all of the tasks we're about to discuss.</p>
-        </section>
-
-        <section>
-          <section>
-            <h2>Wraith: CSS Regression testing</h2>
-            <br>
-            <p class="fragment">CSS regressions? say it ain't so!</p>
-            <br>
-            <p class="fragment">Having no scope at all, CSS is the easiest thing to nudge out of place. It's easier to prevent than you think.</p>
-            <br>
-            <p class="fragment">Wraith uses either Phantom or Slimer (your choice) to take screenshots of two environments, producing a visual diff of the two screenshots!</p>
-          </section>
-          <section>
-            <h3>Basic usage of Wraith</h3>
-            <br>
-            <pre><code class="language-bash"># examples/wraith
-$ ./install.sh
-$ cd wraith
-$ rake # runs their example against bbc.co.uk
-$ open shots/gallery.html # view results in the browser</code></pre>
-          </section>
-          <section>
-            <h3>Multiple tests</h3>
-            <br>
-            <p>Wraith handles one comparison per config file.</p>
-            <br>
-            <p class="fragment">However, it has support for multiple configs, so several config files in one repo allows for multiple comparisons.</p>
-            <br>
-            <pre class="fragment"><code class="language-bash">$ cd /path/to/wraith/configs
-$ rake config[homepage]</code></pre>
-          </section>
         </section>
 
         <section data-state="blackout">
