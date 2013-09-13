@@ -1,3 +1,6 @@
 # ignore all node.js dependencies
 # - if you want to use the grunt.js examples, run "npm install" in each directory
 *node_modules
+
+# ignore Wraith
+examples/wraith/wraith/*
