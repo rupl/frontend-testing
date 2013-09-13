@@ -174,7 +174,7 @@
             <br>
             <p class="fragment">Phantom does everything a webkit browser can do, except there's no monitor. It <em>CAN</em> produce visual pages on command.</p>
             <br>
-            <p class="fragment">It's an indispensible tool for automating tasks that require loading up a web page and doing something (screenshots, window resizes, etc)</p>
+            <p class="fragment">It's an indispensible tool for automating tasks that require loading up a web page and doing something (screenshots, window resizes, clicking things, etc)</p>
             <br>
             <p class="fragment"><a href="http://phantomjs.org/">PhantomJS docs</a></p>
           </section>
@@ -207,8 +207,11 @@ $ phantomjs examples/netsniff.js http://example.com/ > ex.har
 # install/run YSlow on the waterfall (node.js)
 $ npm install yslow -g
 $ yslow --info basic --format plain ex.har
+
+# Full grade report of FK website, all in one line
+$ phantomjs examples/netsniff.js http://fourkitchens.com | yslow --info grade --format plain
 </code></pre>
-            <small>Code compliments of <a href="http://www.igvita.com/slides/2012/devtools-tips-and-tricks/#11">Ilya Grigorik</a></small>
+            <small>Original code compliments of <a href="http://www.igvita.com/slides/2012/devtools-tips-and-tricks/#11">Ilya Grigorik</a></small>
           </section>
           <section>
             <h2>YSlow for Phantom</h2>
