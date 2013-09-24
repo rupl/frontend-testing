@@ -190,6 +190,50 @@
 
         <section>
           <section>
+            <h2>CSS/JS authoring</h2>
+            <br>
+            <p class="fragment">The meat 'n' potatoes of frontend.</p>
+          </section>
+          <section>
+            <h3>JSHint + Grunt</h3>
+            <br>
+            <p><a href="http://www.jshint.com/">JSHint</a> is a code quality tool. It can help you debug JS and catch any little mistakes you might make.</p>
+            <br><br>
+            <p class="fragment">It can also do lots of nice things like tell you when you have unused variables.</p>
+            <br><br>
+            <p class="fragment">However, the web UI can be a pain to use, with lots of copy/paste involved. It's much nicer to run JSHint after every file save.</p>
+          </section>
+          <section>
+            <pre><code class="language-bash"># examples/grunt/jshint
+$ npm install
+
+# usage
+$ grunt watch
+
+# show all errors without stopping
+$ grunt watch --force
+</code></pre>
+            <br><br>
+            <p class="fragment">Then just save your files like normal :)</p>
+          </section>
+          <section>
+            <h3>Other examples of grunt watch</h3>
+            <br>
+            <p>Check out the <a href="https://github.com/fourkitchens/dca2013">DrupalCamp Austin repo</a> that includes a pretty comprehensive <a href="https://github.com/fourkitchens/dca2013/blob/master/Gruntfile.js">gruntfile</a>.</p>
+            <br><br>
+            <ul>
+              <li>JSHint</li>
+              <li>uglifyjs</li>
+              <li>script concatenation</li>
+              <li>jekyll-build</li>
+              <li>Compass</li>
+              <li>dev/prod modes</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
             <h2>Performance Testing</h2>
           </section>
           <section>
