@@ -1,0 +1,28 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.0.0)
+      i18n (~> 0.6, >= 0.6.4)
+      minitest (~> 4.2)
+      multi_json (~> 1.3)
+      thread_safe (~> 0.1)
+      tzinfo (~> 0.3.37)
+    atomic (1.1.14)
+    crack (0.4.1)
+      safe_yaml (~> 0.9.0)
+    garb (0.9.1)
+      activesupport (>= 2.2.0)
+      crack (>= 0.1.6)
+    i18n (0.6.5)
+    minitest (4.7.5)
+    multi_json (1.8.2)
+    safe_yaml (0.9.7)
+    thread_safe (0.1.3)
+      atomic
+    tzinfo (0.3.38)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  garb (~> 0.9.1)
