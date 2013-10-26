@@ -333,6 +333,27 @@ $ rake config[dashboard]</code></pre>
           </section>
         </section>
 
+        <section>
+          <section>
+            <h2>Setting up prerender</h2>
+            <br><br>
+            <p class="fragment"><a href="http://rupl.github.io/prerender/">Prerender</a> is relatively new, and lets you<br> pre-load whole pages before a user clicks.</p>
+            <br><br>
+            <p class="fragment">Since it's a heavy-handed but super-useful optimization, you MUST make sure it is only used in situations where it's absolutely appropriate.</p>
+          </section>
+          <section>
+            <p>Google Analytics &mdash; <strong>Audience &#187; Visitors Flow</strong></p>
+            <img src="img/visitor-flow.png" alt="Screenshot of Google Analytics diagram for Visitor Flow.">
+          </section>
+          <section>
+            <h3>..or you can automate the hunt!</h3>
+            <br>
+            <pre><code class="language-bash"># examples/prerender
+$ ruby report.rb login@gmail.com password UA-XXXXXX-Y</code></pre>
+            <small>Original code compliments of <a href="https://gist.github.com/igrigorik/a491cc732b5d4627e193#file-report-rb">Ilya Grigorik</a></small>
+          </section>
+        </section>
+
         <section data-state="blackout">
           <section>
             <h1>Automating Tasks with CI</h1>
@@ -377,7 +398,7 @@ $ rake config[dashboard]</code></pre>
           <p>chris &#x2740; fourkitchens.com</p>
         </section>
 
-        <section data-state="bluesy">
+        <!-- section data-state="bluesy">
           <h2>Rate this session!</h2>
           <p>
             <a href="https://prague2013.drupal.org/session/frontend-ops">Visit the session page</a> to leave feedback.<br>
@@ -385,7 +406,7 @@ $ rake config[dashboard]</code></pre>
             Short link: <a href="http://j.mp/dcprague-fops">http://j.mp/dcprague-fops</a><br><br>
             Select <i>"Provide feedback on this session"</i>
           </p>
-        </section>
+        </section -->
       </div>
 
       <!-- The navigational controls UI -->
