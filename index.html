@@ -33,9 +33,10 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section data-state="bluesy">
-          <h1 style="font-size: 3.2em; ">Frontend Ops</h1><br><br>
-          <h3>DrupalCon Prague</h3><br><br>
+          <h1 style="font-size: 3.2em; ">Frontend Ops</h1><br>
           <p class="fragment">Or: How to Automate the Process of Breaking Things</p>
+          <br><br><br>
+          <h3>BADCamp 2013</h3>
           <script>
             // Delicously hacky. Look away.
             if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
@@ -43,24 +44,20 @@
         </section>
 
         <section>
-          <h2>Who am I?</h2>
+          <h2>Chris Ruppel</h2>
           <section>
             <br><br>
-            <h3>Chris Ruppel</h3>
             <p>frontend dev @ <a href="http://fourkitchens.com">Four Kitchens</a></p>
             <p><a href="http://twitter.com/rupl">twitter.com/rupl</a></p>
             <p><a href="https://github.com/rupl">github.com/rupl</a></p>
           </section>
           <section>
-            <a href="http://fourkitchens.com"><img src="img/4k-logo-square-500px.png" alt="Four Kitchens" style="border: 0; box-shadow: none; "></a>
-          </section>
-          <section>
-            <br><br><br>
-            <h2><a href="http://fourkitchens.com/careers">(we're hiring!)</a></h2>
+            <a href="http://fourkitchens.com"><img src="img/4k-logo-square-500px.png" alt="Four Kitchens" style="border: 0; box-shadow: none; "></a><br>
+            <small><a href="http://fourkitchens.com/careers">(we're hiring!)</a></small>
           </section>
           <section>
             <br><br>
-            <h3>I contribute to open source stuff:</h3>
+            <p style="font-size: 1.25em;">I contribute to open source stuff:</p>
             <ul class="fragment">
               <li><a href="https://drupal.org/project/modernizr">Modernizr Drupal module</a>
               <li><a href="http://modernizr.com">Modernizr</a>
@@ -74,21 +71,24 @@
         <section>
           <h2>Differences from DevOps</h2>
           <section>
-            <br>
+            <br><br>
             <p class="fragment">None: if you're familiar with DevOps, this is <strong style="font-size: 1.4em;">not</strong> new.</p>
             <br>
             <p class="fragment">However, since frontend is a different game than backend, its operational needs are slightly different.</p>
           </section>
           <section>
-            <br>
+            <br><br>
             <p>Often, a PHP error results in a 500 or<br> blank page. You either get HTML or not.</p>
+            <br><br>
+            <p class="fragment">(or you can at least use XHProf)</p>
             <br>
-            <p class="fragment">There are untold number of subtle<br> errors that can occur on the frontend.</p>
           </section>
           <section>
             <br>
+            <p>There are untold number of subtle<br> errors that can occur on the frontend.</p>
+            <br>
             <ul>
-              <li>Minor CSS changes that throw things off</li>
+              <li class="fragment">Minor CSS changes that throw things off</li>
               <li class="fragment">Changes to JS files that break things</li>
               <li class="fragment">Aggregates changing when not necessary</li>
               <li class="fragment">Performance regressions<br><br></li>
@@ -102,6 +102,7 @@
             <br>
             <ul class="fragment">
               <li>Dependency management</li>
+              <li>Builds and deployment</li>
               <li>Automated testing</li>
               <li>Automated review</li>
               <li>Accountability for code changes</li>
@@ -332,6 +333,27 @@ $ rake config[dashboard]</code></pre>
           </section>
         </section>
 
+        <section>
+          <section>
+            <h2>Setting up prerender</h2>
+            <br><br>
+            <p class="fragment"><a href="http://rupl.github.io/prerender/">Prerender</a> is relatively new, and lets you<br> pre-load whole pages before a user clicks.</p>
+            <br><br>
+            <p class="fragment">Since it's a heavy-handed but super-useful optimization, you MUST make sure it is only used in situations where it's absolutely appropriate.</p>
+          </section>
+          <section>
+            <p>Google Analytics &mdash; <strong>Audience &#187; Visitors Flow</strong></p>
+            <img src="img/visitor-flow.png" alt="Screenshot of Google Analytics diagram for Visitor Flow.">
+          </section>
+          <section>
+            <h3>..or you can automate the hunt!</h3>
+            <br>
+            <pre><code class="language-bash"># examples/prerender
+$ ruby report.rb login@gmail.com password UA-XXXXXX-Y</code></pre>
+            <small>Original code compliments of <a href="https://gist.github.com/igrigorik/a491cc732b5d4627e193#file-report-rb">Ilya Grigorik</a></small>
+          </section>
+        </section>
+
         <section data-state="blackout">
           <section>
             <h1>Automating Tasks with CI</h1>
@@ -376,7 +398,7 @@ $ rake config[dashboard]</code></pre>
           <p>chris &#x2740; fourkitchens.com</p>
         </section>
 
-        <section data-state="bluesy">
+        <!-- section data-state="bluesy">
           <h2>Rate this session!</h2>
           <p>
             <a href="https://prague2013.drupal.org/session/frontend-ops">Visit the session page</a> to leave feedback.<br>
@@ -384,7 +406,7 @@ $ rake config[dashboard]</code></pre>
             Short link: <a href="http://j.mp/dcprague-fops">http://j.mp/dcprague-fops</a><br><br>
             Select <i>"Provide feedback on this session"</i>
           </p>
-        </section>
+        </section -->
       </div>
 
       <!-- The navigational controls UI -->
