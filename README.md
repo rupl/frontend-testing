@@ -12,3 +12,4 @@ when any of these become critical.
 ## Presented at:
 
 * [DrupalCon Prague 2013](https://prague2013.drupal.org/session/frontend-ops)
+* [BADCamp 2013](http://2013.badcamp.net/sessions/frontend-ops)
