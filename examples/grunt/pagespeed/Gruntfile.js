@@ -7,13 +7,13 @@ module.exports = function(grunt) {
         url: "http://fourkitchens.com",
         locale: "en_US",
         strategy: "desktop",
-        threshold: 80
+        threshold: 85
       },
       mobile: {
         url: "http://fourkitchens.com",
         locale: "en_US",
         strategy: "mobile",
-        threshold: 80
+        threshold: 85
       },
       options: {
         key: function() {
