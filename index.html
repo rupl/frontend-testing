@@ -285,6 +285,52 @@ $ grunt pagespeed:mobile # runs mobile task</code></pre>
             <br>
             <small><a href="https://github.com/rupl/frontend-ops/tree/master/examples/grunt/pagespeed">View code on GitHub</a></small>
           </section>
+          <section>
+            <h2>Phantomas</h2>
+            <br>
+            <p class="fragment"><a href="https://github.com/macbre/phantomas">Phantomas</a> is a PhantomJS-based<br> web performance metrics tool</p>
+            <br>
+            <p class="fragment">It gives you loads of data about how the<br> frontend of your website is performing.</p>
+            <br>
+            <p class="fragment">The <a href="https://github.com/macbre/phantomas#usage">usage guide</a> is extensive.</p>
+          </section>
+          <section>
+            <pre><code class="language-bash"># install via npm
+$ npm install -g phantomas
+
+# run a basic report
+$ phantomas --url http://example.com
+
+# set viewport dimensions, generate images of rendering process
+$ phantomas --url http://example.com --viewport=320x480 --film-strip
+
+# assert a test for total number of requests
+$ phantomas --url http://example.com --assert-requests=20
+</code></pre>
+          </section>
+          <section>
+            <h2>grunt-phantomas</h2>
+            <br><br>
+            <p class="fragment">The grunt plugin is not just<br> a wrapper for running the tool.</p>
+            <br><br>
+            <p class="fragment">It makes reporting trends easier<br> with charts that update each<br> time you run the grunt task</p>
+          </section>
+          <section>
+            <pre><code class="language-bash"># examples/grunt/phantomas
+$ npm install
+
+# run report
+$ grunt phantomas:default
+
+# run report and generate screenshot
+$ grunt phantomas:screenshot
+
+# test for certain values. this might cause failure!
+$ grunt phantomas:requests
+</code></pre>
+            <br>
+            <small><a href="https://github.com/rupl/frontend-ops/tree/master/examples/grunt/phantomas">View code on GitHub</a></small>
+          </section>
         </section>
 
         <section>
