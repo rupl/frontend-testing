@@ -202,7 +202,7 @@
             <br><br>
             <p class="fragment">It can also do lots of nice things like tell you when you have unused variables.</p>
             <br><br>
-            <p class="fragment">However, the web UI can be a pain to use, with lots of copy/paste involved. It's much nicer to run JSHint after every file save.</p>
+            <p class="fragment">However, the web UI can be a pain to use, with lots of copy/paste involved. It's much nicer to run JSHint automatically after every file save.</p>
           </section>
           <section>
             <pre><code class="language-bash"># examples/grunt/jshint
@@ -259,16 +259,8 @@ $ yslow --info basic --format plain ex.har
 $ phantomjs examples/netsniff.js http://fourkitchens.com | yslow --info grade --format plain
 </code></pre>
             <small>Original code compliments of <a href="http://www.igvita.com/slides/2012/devtools-tips-and-tricks/#11">Ilya Grigorik</a></small>
-          </section>
-          <section>
-            <h2>YSlow for Phantom</h2>
-            <p><a href="http://yslow.org/phantomjs/">YSlow also has a phantomjs package</a></p>
             <br>
-            <pre><code class="language-bash"># same task as the previous slide, sans node.js
-phantomjs yslow.js -i basic -f plain http://example.com
-</code></pre>
-            <br>
-            <p class="fragment"><b>Warning:</b> I have found <a href="https://gist.github.com/rupl/6392257">significant differences</a> between node yslow and phantomjs/yslow.js on even the simplest of operations (this example included).</p>
+            <small><a href="http://yslow.org/phantomjs/">YSlow also has a phantomjs package</a></small>
           </section>
           <section>
             <h2>Automating PageSpeed</h2>
@@ -279,8 +271,6 @@ phantomjs yslow.js -i basic -f plain http://example.com
               It can also be automated, by <a href="https://developers.google.com/speed/docs/insights/v1/getting_started#auth">getting an API key</a>.
               <br><br>
               Or signing up for <a href="https://developers.google.com/speed/pagespeed/service">PageSpeed service</a>.
-              <br>
-              The service requires signup on a <a href="https://docs.google.com/a/google.com/forms/d/1lX5ixIANZtE23UXxHYORa-tm_HwW6c6wxDkW-0rUDSE/viewform">waiting list</a>.
             </p>
           </section>
           <section>
@@ -294,6 +284,52 @@ $ grunt # runs default task
 $ grunt pagespeed:mobile # runs mobile task</code></pre>
             <br>
             <small><a href="https://github.com/rupl/frontend-ops/tree/master/examples/grunt/pagespeed">View code on GitHub</a></small>
+          </section>
+          <section>
+            <h2>Phantomas</h2>
+            <br>
+            <p class="fragment"><a href="https://github.com/macbre/phantomas">Phantomas</a> is a PhantomJS-based<br> web performance metrics tool</p>
+            <br>
+            <p class="fragment">It gives you loads of data about how the<br> frontend of your website is performing.</p>
+            <br>
+            <p class="fragment">The <a href="https://github.com/macbre/phantomas#usage">usage guide</a> is extensive.</p>
+          </section>
+          <section>
+            <pre><code class="language-bash"># install via npm
+$ npm install -g phantomas
+
+# run a basic report
+$ phantomas --url http://example.com
+
+# set viewport dimensions, generate images of rendering process
+$ phantomas --url http://example.com --viewport=320x480 --film-strip
+
+# assert a test for total number of requests
+$ phantomas --url http://example.com --assert-requests=20
+</code></pre>
+          </section>
+          <section>
+            <h2>grunt-phantomas</h2>
+            <br><br>
+            <p class="fragment">The grunt plugin is not just<br> a wrapper for running the tool.</p>
+            <br><br>
+            <p class="fragment">It makes reporting trends easier<br> with charts that update each<br> time you run the grunt task</p>
+          </section>
+          <section>
+            <pre><code class="language-bash"># examples/grunt/phantomas
+$ npm install
+
+# run report
+$ grunt phantomas:default
+
+# run report and generate screenshot
+$ grunt phantomas:screenshot
+
+# test for certain values. this might cause failure!
+$ grunt phantomas:requests
+</code></pre>
+            <br>
+            <small><a href="https://github.com/rupl/frontend-ops/tree/master/examples/grunt/phantomas">View code on GitHub</a></small>
           </section>
         </section>
 
@@ -350,6 +386,19 @@ $ rake config[dashboard]</code></pre>
             <pre><code class="language-bash"># examples/prerender
 $ ruby report.rb login@gmail.com password UA-XXXXXX-Y</code></pre>
             <small>Original code compliments of <a href="https://gist.github.com/igrigorik/a491cc732b5d4627e193#file-report-rb">Ilya Grigorik</a></small>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>QA and Testing</h2>
+            <br><br>
+            <p class="fragment">Testing in loads of browsers is a<br> necessary but tedious task.</p>
+            <br><br>
+            <p class="fragment">Services like <a href="http://browserstack.com">BrowserStack.com</a><br> make testing much simpler.</p>
+          </section>
+          <section data-state="big-img">
+            <img class="bare" style="margin-top: -200px; " src="img/browserstack-screenshots.png" alt="visit browserstack.com/screenshots to automatically test in over 300 browsers.">
           </section>
         </section>
 

@@ -4,3 +4,7 @@
 
 # ignore Wraith
 examples/wraith/wraith/*
+
+# ignore example Phantomas output
+examples/grunt/phantomas/phantomas/*
+examples/grunt/phantomas/screenshots/*
