@@ -9,6 +9,12 @@ managing a product (instead of a site), team workflow, release management,
 correlating regressions with code changes, and notifying teams automatically
 when any of these become critical.
 
+## Examples
+
+This slide deck comes with many examples of the concepts discussed within the
+slides. Browse the `examples` folder to experiment with real, working code
+snippets to help get you started.
+
 ## Presented at:
 
 * [DrupalCon Prague 2013](https://prague2013.drupal.org/session/frontend-ops)
