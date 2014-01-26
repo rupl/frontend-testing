@@ -35,5 +35,5 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-phantomas');
 
-  grunt.registerTask('default', ['phantomas']);
+  grunt.registerTask('default', ['phantomas:default']);
 };
