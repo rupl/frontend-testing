@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Intro to Frontend Ops</title>
+    <title>Automated Frontend Testing</title>
 
     <meta name="description" content="Intro to Frontend Ops - learn how to get started with frontend development, focused primarily on workflow automation.">
     <meta name="author" content="Chris Ruppel">
@@ -34,8 +34,8 @@
       <div class="slides">
         <section data-state="bluesy">
           <br><br>
-          <h1 style="font-size: 3.2em; ">Frontend Ops</h1><br>
-          <p class="fragment">Or: How to Automate the Process of Breaking Things</p>
+          <h1 style="font-size: 3.2em; ">Austomated Frontend Testing</h1><br>
+          <p class="fragment">Or: How to Automate the Process of <span class="insert">detecting when you</span> Break Things</p>
           <script>
             // Delicously hacky. Look away.
             if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
@@ -56,22 +56,22 @@
           </section>
           <section>
             <br><br>
-            <p style="font-size: 1.25em;">I contribute to open source stuff:</p>
+            <p style="font-size: 1.25em;">I contribute and present about open source:</p><br>
             <ul class="fragment">
+              <li><a href="http://rupl.github.io/unfold/">Unfolding the Box Model</a>
               <li><a href="https://drupal.org/project/modernizr">Modernizr Drupal module</a>
-              <li><a href="http://modernizr.com">Modernizr</a>
+              <li><a href="https://drupal.org/project/fastclick">FastClick Drupal module</a>
+              <li><a href="https://drupal.org/project/pre">Prerender/Prefetch Drupal module</a>
               <li><a href="https://github.com/fourkitchens/jekyll-schedule">jekyll-schedule</a>
-              <li><a href="https://groups.drupal.org/html5/drupal-8">Drupal 8 HTML5 Initative</a>
-              <li><a href="https://groups.drupal.org/mobile/drupal-8">Drupal 8 Mobile Initiative</a>
             </ul>
           </section>
         </section>
 
         <section>
-          <h2>Differences from DevOps</h2>
+          <h2>Differences from server-side testing</h2>
           <section>
             <br><br>
-            <p class="fragment">None: if you're familiar with DevOps, this is <strong style="font-size: 1.4em;">not</strong> new.</p>
+            <p class="fragment">None: if you're familiar with server-side testing, this is <strong style="font-size: 1.4em;">not</strong> new.</p>
             <br>
             <p class="fragment">However, since frontend is a different game than backend, its operational needs are slightly different.</p>
           </section>
@@ -97,27 +97,18 @@
             <br>
             <p>Additionally, frontend development is<br> becoming more critical as the trade matures.</p>
             <br>
-            <p class="fragment">We need the same workflow tools<br> that the backend has had for years.</p>
+            <p class="fragment">We need the same testing abilities<br> that the backend has had for years.</p>
             <br>
             <ul class="fragment">
-              <li>Dependency management</li>
-              <li>Builds and deployment</li>
-              <li>Automated testing</li>
-              <li>Automated review</li>
+              <li>Testing page load times</li>
+              <li>Testing render speeds</li>
+              <li>Sticking to a performance budget</li>
               <li>Accountability for code changes</li>
             </ul>
           </section>
         </section>
 
         <section data-state="soothe">
-          <section>
-            <h2>Frontend Ops</h2>
-            <h3>a detailed description</h3>
-            <br>
-            <p class="fragment" style="width: 120%; margin-left: -10%; ">Alex Sexton wrote an article for Smashing Mag<br> describing the <a href="http://www.smashingmagazine.com/2013/06/11/front-end-ops/">ideal frontend ops engineer</a>.</p>
-            <br>
-            <p class="fragment">Most people are using Drupal to build websites instead of webapps, so this presentation will cover useful tasks for website development.</p>
-          </section>
           <section>
             <h2>workflow_alter()</h2>
             <br>
@@ -132,9 +123,9 @@
         <section>
             <h1>YES</h1>
             <br>
-            <p class="fragment">The slides AND code are on GitHub, I will tweet the link, and it's already available on the session page of the DrupalCon site. Yes, you may <a href="https://github.com/rupl/frontend-ops/blob/master/LICENSE.md">take code from the slides</a> and use it for any purpose :)</p>
+            <p class="fragment">The slides AND code are on GitHub, I will tweet the link, and it's already available on the session page of the DrupalCon site. Yes, you may <a href="https://github.com/rupl/frontend-testing/blob/gh-pages/LICENSE.md">take code from the slides</a> and use it for any purpose :)</p>
             <br>
-            <p class="fragment">This presentation is using a fresh clone of these slides, using the many <a href="https://github.com/rupl/frontend-ops/tree/master/examples">examples I provided in the repo</a>.</p>
+            <p class="fragment">This presentation is using a fresh clone of these slides, using the many <a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples">examples I provided in the repo</a>.</p>
         </section>
 
         <section data-state="blackout">
