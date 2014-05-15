@@ -209,12 +209,12 @@ body {
 .reveal pre {
 	display: block;
 	position: relative;
-  width: 130%;
-  left: -15%;
-  font-size: .8em;
+	width: 120%;
+	left: -10%;
+	font-size: .8em;
 }
 .reveal code {
-  background: #272822;
+	background: #272822;
 	font-family: monospace;
 }
 
