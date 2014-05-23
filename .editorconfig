@@ -1,0 +1,4 @@
+# editorconfig for my slides
+[*.*]
+indent_style = space
+indent_size = 2
