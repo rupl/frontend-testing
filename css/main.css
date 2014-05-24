@@ -898,6 +898,40 @@ img.bare {
 
 
 /*********************************************
+ * Strikethrough for Title
+ *********************************************/
+.insert-container {
+  -webkit-perspective: 600px;
+     -moz-perspective: 600px;
+      -ms-perspective: 600px;
+          perspective: 600px;
+  -webkit-transform-style: preserve-3d;
+     -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.insert {
+  color: #f77 !important;
+  display: block;
+  width: auto;
+  position: absolute;
+  -webkit-transform: translateX(13.2em) translateY(-.8em) rotateX(5deg) rotateY(5deg) rotateZ(10deg);
+     -moz-transform: translateX(13.2em) translateY(-.8em) rotateX(5deg) rotateY(5deg) rotateZ(10deg);
+      -ms-transform: translateX(13.2em) translateY(-.8em) rotateX(5deg) rotateY(5deg) rotateZ(10deg);
+          transform: translateX(13.2em) translateY(-.8em) rotateX(5deg) rotateY(5deg) rotateZ(10deg);
+}
+.insert:before {
+  content: '^';
+  color: #f77 !important;
+  display: block;
+  font-size: 1.8em;
+  -webkit-transform: translateY(.4em);
+     -moz-transform: translateY(.4em);
+      -ms-transform: translateY(.4em);
+          transform: translateY(.4em);
+}
+
+/*********************************************
  * OVERVIEW
  *********************************************/
 
