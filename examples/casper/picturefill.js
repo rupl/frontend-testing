@@ -17,7 +17,7 @@ casper.test.begin('Testing Picturefill', 5, function suite(test) {
     // First, we look for a <picture> element. The first argument is a query
     // selector, like jQuery or document.querySelectorAll(). Any <picture> tags
     // on the page are found by using the 'picture' selector.
-    test.assertExists('picture', "<picture> element found.");
+    test.assertExists('picture', '<picture> element found.');
 
     // Now verify that the <picture> tag has three <source> tags. This is
     // another query selector. In a more complex test you will need to write
@@ -44,7 +44,7 @@ casper.test.begin('Testing Picturefill', 5, function suite(test) {
   // declares it as default.
   casper.then(function() {
     test.assertEvalEquals(function () {
-        return document.querySelectorAll("picture img")[0].getAttribute('src').match('medium.jpg').toString();
+        return document.querySelectorAll('picture img')[0].getAttribute('src').match('medium.jpg').toString();
     }, 'medium.jpg', 'medium.jpg found using 320x480 viewport.');
   });
 
@@ -58,7 +58,7 @@ casper.test.begin('Testing Picturefill', 5, function suite(test) {
   // 800px breakpoint for this image.
   casper.then(function() {
     test.assertEvalEquals(function () {
-        return document.querySelectorAll("picture img")[0].getAttribute('src').match('large.jpg').toString();
+        return document.querySelectorAll('picture img')[0].getAttribute('src').match('large.jpg').toString();
     }, 'large.jpg', 'large.jpg found using 960x640 viewport.');
   });
 
@@ -72,7 +72,7 @@ casper.test.begin('Testing Picturefill', 5, function suite(test) {
   // than 1000px wide.
   casper.then(function() {
     test.assertEvalEquals(function () {
-        return document.querySelectorAll("picture img")[0].getAttribute('src').match('extralarge.jpg').toString();
+        return document.querySelectorAll('picture img')[0].getAttribute('src').match('extralarge.jpg').toString();
     }, 'extralarge.jpg', 'extralarge.jpg found using 1280x1024 viewport.');
   });
 
