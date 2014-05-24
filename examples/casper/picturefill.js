@@ -10,14 +10,20 @@
 // - suite(), which contains all of your tests.
 casper.test.begin('Testing Picturefill', 5, function suite(test) {
 
-  // Open a page you want to test.
+  // casper.start() always wraps your first action. The first argument should
+  // be the URL of the page you want to test.
   casper.start('http://scottjehl.github.io/picturefill/examples/demo-02.html', function () {
 
-    // First, we look for a <picture> element. The first argument is like a
-    // query selector. Any <picture> tags are found by the 'picture' selector.
+    // First, we look for a <picture> element. The first argument is a query
+    // selector, like jQuery or document.querySelectorAll(). Any <picture> tags
+    // on the page are found by using the 'picture' selector.
     test.assertExists('picture', "<picture> element found.");
 
-    // Now verify that the <picture> tag has three <source> tags
+    // Now verify that the <picture> tag has three <source> tags. This is
+    // another query selector. In a more complex test you will need to write
+    // a more specific selector. This will find all <source> tags within all
+    // <picture> tags in your document. This demo only has one <picture> tag
+    // so the simple selector works fine.
     test.assertElementCount('picture > source', 3);
 
     // Before running any viewport-specific tests, set the viewport to 320x480.
