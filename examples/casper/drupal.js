@@ -57,10 +57,10 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#fill
     casper.fill('form#user-login-form', config.form, true);
 
-    // You can console.log() at any point in your script. Sometimes it's good
+    // You can output comments at any point in your script. Sometimes it's good
     // to add a message when you're attempting an operation that might take a
     // few moments to respond, such as this login attempt.
-    console.log('Logging in...');
+    test.comment('Logging in...');
   });
 
   // casper.then() allows us to wait until previous tests and actions are
@@ -94,7 +94,7 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     this.click('a[href="/drupal/admin/content"]');
 
     // Log the click to the console so we know why it's pausing momentarily.
-    console.log('Clicking the Content admin link...');
+    test.comment('Clicking the Content admin link...');
   });
 
   // Now that we've authenticated and loaded the content page, it's time to look
@@ -123,7 +123,7 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     this.open(config.host + '/node/add/page');
 
     // Log this action to the console as an informational courtesy to the user.
-    console.log('Adding Basic page...');
+    test.comment('Adding Basic page...');
   });
 
   // With our fresh node/add page, we want to populate and submit another form.
@@ -143,7 +143,7 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     casper.fill('form#page-node-form', nodeContents, true);
 
     // Once again, report that we're saving the node.
-    console.log('Saving new node...');
+    test.comment('Saving new node...');
   });
 
   // Drupal automatically redirects to the published node on success. With the
