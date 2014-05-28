@@ -7,9 +7,7 @@
  * @see https://github.com/henvic/phantom-casper-simple-talk/blob/master/wordpress.js
  */
 
-// First, we do dome setup. We need to collect arguments that may have been set
-// by the user via command-line, and we need to define all the fallbacks since
-// this is a demo script.
+// Set up variables to visit a URL and log in.
 var config = {
   'host': 'http://demo.opensourcecms.com/drupal',
   'form': {
@@ -114,7 +112,7 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#asserturlmatch
     test.assertUrlMatch(/drupal\/node#overlay=admin\/content/, 'Overlay updated the URL to drupal/node#overlay=admin/content');
 
-    // Instead of clicking another link, we want to load the node/add page
+    // Instead of clicking another link, we want to load the node/add/page page
     // without our dear friend, the Overlay. casper.open() simply loads a new
     // URL. We put this at the end of the code block and use casper.then() to
     // ensure that the next tests are run after the page is finished opening.
@@ -142,7 +140,7 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     // broke when it is actually our test that is broken.
     casper.fill('form#page-node-form', nodeContents, true);
 
-    // Once again, report that we're saving the node.
+    // Once again, report that we're saving the node to keep the user informed.
     test.comment('Saving new node...');
   });
 
@@ -151,8 +149,8 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
   casper.then(function() {
 
     // Check the page title of the published node. Since we don't want to hard-
-    // code any of the test values, we use the `new RegExp` syntax instead of
-    // the more compact /my regex/ syntax.
+    // code any of the test values, we use the `new RegExp` syntax which allows
+    // the regex to contain variables.
     test.assertTitleMatch(new RegExp(nodeContents.title), 'Our custom title was found on the published page.');
 
     // Now we do some very light screen scraping to find the text that we added
