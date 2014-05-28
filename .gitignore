@@ -8,3 +8,6 @@ examples/wraith/wraith/*
 # ignore example grunt-phantomas output
 examples/grunt/phantomas/reports/*
 examples/grunt/phantomas/screenshots/*
+
+# ignore example grunt-devperf output
+examples/grunt/devperf/reports/*
