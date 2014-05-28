@@ -7,14 +7,14 @@ module.exports = function(grunt) {
     phantomas: {
       default: {
         options: {
-          indexPath: './phantomas/',
+          indexPath: './reports/',
           options: {},
           url: 'http://gruntjs.com/'
         }
       },
       screenshot: {
         options: {
-          indexPath: './phantomas/',
+          indexPath: './reports/',
           options: {
             'screenshot': 'screenshots/sample-' + Date.now() + '.png'
           },
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       },
       requests: {
         options: {
-          indexPath: './phantomas/',
+          indexPath: './reports/',
           options: {
             'assert-requests': 20
           },

@@ -5,6 +5,6 @@
 # ignore Wraith
 examples/wraith/wraith/*
 
-# ignore example Phantomas output
-examples/grunt/phantomas/phantomas/*
+# ignore example grunt-phantomas output
+examples/grunt/phantomas/reports/*
 examples/grunt/phantomas/screenshots/*
