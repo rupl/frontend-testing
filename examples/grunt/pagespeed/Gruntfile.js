@@ -1,3 +1,17 @@
+// The settings var includes your PageSpeed API Key. To use yours, first go to
+// the following URL and generate/lookup your Google PageSpeed API key:
+//
+// @see https://code.google.com/apis/console/
+//
+// Now make a file called settings.json in the same dir as this
+// Gruntfile and include an object like this:
+//
+// {
+//    "key": "your-google-pagespeed-api-key"
+// }
+var settings = require('./settings.json');
+
+// This is the normal Gruntfile
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -16,12 +30,7 @@ module.exports = function(grunt) {
         threshold: 85
       },
       options: {
-        key: function() {
-          fs.readFile('~/.api/google-pagespeed.key', function (err, data) {
-            if (err) throw err;
-              return data;
-          })
-        }
+        key: settings.key
       }
     }
   });

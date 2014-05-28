@@ -5,6 +5,9 @@
 # ignore Wraith
 examples/wraith/wraith/*
 
+# ignore grunt-pagespeed API key file
+examples/grunt/pagespeed/settings.json
+
 # ignore example grunt-phantomas output
 examples/grunt/phantomas/reports/*
 examples/grunt/phantomas/screenshots/*
