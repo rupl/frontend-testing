@@ -3,8 +3,8 @@
 //
 // @see https://code.google.com/apis/console/
 //
-// Now make a file called settings.json in the same dir as this
-// Gruntfile and include an object like this:
+// Now make a file called settings.json in the same dir as this Gruntfile and
+// include an object like this:
 //
 // {
 //    "key": "your-google-pagespeed-api-key"
