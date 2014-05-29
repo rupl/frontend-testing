@@ -139,9 +139,11 @@
           <section>
             <h2>CasperJS</h2>
             <p>Casper allows for scripted actions to be tested. It uses all the power that PhantomJS offers.</p>
+            <br>
             <ul class="faded">
               <li>Run the same test with multiple screen sizes.</li>
               <li>Test complex features or components.</li>
+              <li>Log in and automate complex actions.</li>
             </ul>
           </section>
           <section>
@@ -151,7 +153,7 @@ $ brew install casperjs --devel
 # test the canonical picturefill demo
 $ casperjs test picturefill.js
 
-# test a Drupal demo site
+# test a Drupal demo site, log in, add content
 $ casperjs test drupal.js</code></pre>
           </section>
         </section>
@@ -162,37 +164,15 @@ $ casperjs test drupal.js</code></pre>
             <h1>Performance Testing</h1>
           </section>
           <section>
-            <h2>Automating YSlow</h2>
-            <br>
-            <p class="fragment"><a href="http://developer.yahoo.com/yslow/">YSlow</a> is a service that grades frontend performance based on many tried and true facets. Developed at Yahoo! when they were the kings of perf.</p>
-            <br>
-            <p class="fragment">It delivers A-F on the various tests, but historically required the user to visit each page in a browser.</p>
-          </section>
-          <section>
-            <pre><code class="language-bash"># capture a HAR file from the CLI
-$ phantomjs examples/netsniff.js http://example.com/ > ex.har
-
-# install/run YSlow on the waterfall (node.js)
-$ npm install yslow -g
-$ yslow --info basic --format plain ex.har
-
-# Full grade report of FK website, all in one line
-$ phantomjs examples/netsniff.js http://fourkitchens.com | yslow --info grade --format plain
-</code></pre>
-            <small>Original code compliments of <a href="http://www.igvita.com/slides/2012/devtools-tips-and-tricks/#11">Ilya Grigorik</a></small>
-            <br>
-            <small><a href="http://yslow.org/phantomjs/">YSlow also has a phantomjs package</a></small>
-          </section>
-          <section>
             <h2>Automating PageSpeed</h2>
             <br>
-            <p class="fragment">Not to be outdone by Yahoo, Google has a<br> competing service called <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>.</p>
+            <p class="fragment">Google has a service called <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> that grades your site and boils down tons of factors into a "speed index"</p>
             <br>
             <p class="fragment">
-              It can also be automated, by <a href="https://developers.google.com/speed/docs/insights/v1/getting_started#auth">getting an API key</a>.
+              Testing sites can be automated. <a href="https://developers.google.com/speed/docs/insights/v1/getting_started#auth">Get your API key first</a>.
               <br><br>
-              Or signing up for <a href="https://developers.google.com/speed/pagespeed/service">PageSpeed service</a>.
             </p>
+            <p class="fragment"><small>Or you can sign up for the <a href="https://developers.google.com/speed/pagespeed/service">PageSpeed service</a>.</small></p>
           </section>
           <section>
             <h2>grunt-pagespeed</h2>
@@ -204,7 +184,7 @@ $ npm install
 $ grunt # runs default task
 $ grunt pagespeed:mobile # runs mobile task</code></pre>
             <br>
-            <small><a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples/grunt/pagespeed">View code on GitHub</a></small>
+            <small><a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples/grunt/pagespeed/Gruntfile.js">View code on GitHub</a></small>
           </section>
           <section>
             <h2>Phantomas</h2>
@@ -220,21 +200,25 @@ $ grunt pagespeed:mobile # runs mobile task</code></pre>
 $ npm install -g phantomas
 
 # run a basic report
-$ phantomas --url http://example.com
+$ phantomas --url http://gruntjs.com
 
 # set viewport dimensions, generate images of rendering process
-$ phantomas --url http://example.com --viewport=320x480 --film-strip
+$ phantomas --url http://gruntjs.com --viewport=320x480 --film-strip
 
 # assert a test for total number of requests
-$ phantomas --url http://example.com --assert-requests=20
+$ phantomas --url http://gruntjs.com --assert-requests=20
 </code></pre>
           </section>
           <section>
             <h2>grunt-phantomas</h2>
-            <br><br>
-            <p class="fragment">The grunt plugin is not just<br> a wrapper for running the tool.</p>
-            <br><br>
-            <p class="fragment">It makes reporting trends easier<br> with charts that update each<br> time you run the grunt task</p>
+            <br>
+            <p class="fragment">This grunt plugin is not just a wrapper for running the tool.</p>
+            <br>
+            <p class="fragment">It provides detailed reports that track your data over time, allowing you to identify trends using dynamic charts that update themselves each time you run the grunt task</p>
+            <br>
+          </section>
+          <section>
+            <img src="img/grunt-phantomas-graph.png" alt="Graph displaying a spike in CSS size." style="position: relative; top: -2em;">
           </section>
           <section>
             <pre><code class="language-bash"># examples/grunt/phantomas
@@ -247,10 +231,56 @@ $ grunt phantomas:default
 $ grunt phantomas:screenshot
 
 # test for certain values. this might cause failure!
-$ grunt phantomas:requests
-</code></pre>
+$ grunt phantomas:requests</code></pre>
             <br>
-            <small><a href="https://github.com/rupl/frontend-ops/tree/master/examples/grunt/phantomas">View code on GitHub</a></small>
+            <small><a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples/grunt/phantomas/Gruntfile.js">View code on GitHub</a></small>
+          </section>
+          <section>
+            <h2>Performance Budgets</h2>
+            <br>
+            <p class="fragment">The idea is simple: <a href="http://timkadlec.com/2013/01/setting-a-performance-budget/">performance budgets</a> are just like a monthy expense budget. We should keep track of how fat our sites grow over time.</p>
+            <br>
+            <p class="fragment">grunt-phantomas is working on performance budget features that will <a href="https://github.com/stefanjudis/grunt-phantomas/issues/86">record and visualize over-budget metrics</a> according to your constraints.</p>
+          </section>
+          <section>
+            <h2>grunt-devperf</h2>
+            <br><br>
+            <p class="fragment">This tool is built upon Phantomas and grunt-phantomas, and offers some assertion-based reporting. It is another attempt to help monitor performance budgets.</p>
+            <br>
+          </section>
+          <section>
+            <pre><code class="language-bash"># examples/grunt/devperf
+$ npm install
+
+# run report
+$ grunt devperf
+</code></pre>
+            <small><a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples/grunt/devperf/Gruntfile.js">View code on GitHub</a></small>
+          </section>
+          <section>
+            <img src="img/grunt-devperf-graph.png" alt="Graph displaying grunt-devperf output" width="960" style="position: relative; top: -1em; ">
+          </section>
+          <section>
+            <h2>grunt-perfbudget</h2>
+            <br>
+            <p class="fragment">Tim Kadlec, who first suggested performance budgets, recently released this tool to help teams meet their goals.</p>
+            <br>
+            <p class="fragment">grunt-perfbudget relies on the immensely useful <a href="http://webpagetest.org">WebPageTest</a> API to enforce a budget.</p>
+            <br>
+            <p class="fragment">WebPageTest.org and its API are much more flexible than PhantomJS tools, because it can leverage multiple browsers, geographic locations, and network speeds.</p>
+          </section>
+          <section>
+            <pre><code class="language-bash"># examples/grunt/perfbudget
+$ npm install
+
+# run report
+$ grunt perfbudget
+</code></pre>
+            <small><a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples/grunt/perfbudget/Gruntfile.js">View code on GitHub</a></small>
+          </section>
+          <section>
+            <img src="img/grunt-perfbudget-output.png" alt="Output of grunt-perfbudget task" width="960" style="position: relative; top: -1em; ">
+            <p><small><a href="http://www.webpagetest.org/result/140529_CK_5V7/">View this result on webpagetest.org</a></small></p>
           </section>
         </section>
 
