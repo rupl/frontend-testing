@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-perfbudget": "~0.1.3"
+  }
+}

@@ -8,6 +8,9 @@ examples/wraith/wraith/*
 # ignore grunt-pagespeed API key file
 examples/grunt/pagespeed/settings.json
 
+# ignore grunt-perfbudget API key file
+examples/grunt/perfbudget/settings.json
+
 # ignore example grunt-phantomas output
 examples/grunt/phantomas/reports/*
 examples/grunt/phantomas/screenshots/*
