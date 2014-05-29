@@ -18,13 +18,13 @@ module.exports = function(grunt) {
 
     pagespeed: {
       desktop: {
-        url: "http://fourkitchens.com",
+        url: "http://gruntjs.com",
         locale: "en_US",
         strategy: "desktop",
         threshold: 85
       },
       mobile: {
-        url: "http://fourkitchens.com",
+        url: "http://gruntjs.com",
         locale: "en_US",
         strategy: "mobile",
         threshold: 85
@@ -37,5 +37,5 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-pagespeed');
 
-  grunt.registerTask('default', ['pagespeed']);
+  grunt.registerTask('default', ['pagespeed:desktop']);
 };
