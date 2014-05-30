@@ -1,8 +1,9 @@
 # Automated Frontend Testing
 
-An intro to automates frontend testing. This is an enormous field containing
+An intro to automated frontend testing. This is an enormous field containing
 many skillsets, but this presentation covers the basics of testing in the
-context of building websites.
+context of building websites. It covers functional testing, performance testing,
+and QA tools for development teams.
 
 ## Examples
 
