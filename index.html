@@ -357,19 +357,30 @@ $ open shots/gallery.html</code></pre>
         </section>
 
         <section>
-          <h2>Trigger Jenkins builds<br> by pushing to GitHub</h2>
-          <br>
-          <p class="fragment">An oldie but goodie: <a href="http://fourkitchens.com/blog/2011/09/20/trigger-jenkins-builds-pushing-github">check out our how-to from 2011</a></p>
-          <br>
-          <ol class="fragment">
-            <li>You push to GitHub master branch (or merge PR)</li>
-            <li>GitHub sends a message to your CI server</li>
-            <li><em>"Yo Jenkins, the repository was updated!"</em></li>
-            <li>CI server pulls the new code to your staging area</li>
-          </ol>
-          <br>
-          <br>
-          <p class="fragment">Although fairly mundane in terms of CI, the blog post illustrates the basic concepts underlying all of the tasks involving Jenkins.</p>
+          <section>
+            <h2>Trigger Jenkins builds<br> by pushing to GitHub</h2>
+            <br>
+            <p class="fragment">An oldie but goodie: <a href="http://fourkitchens.com/blog/2011/09/20/trigger-jenkins-builds-pushing-github">check out our how-to from 2011</a></p>
+            <br>
+            <ol class="fragment">
+              <li>You push to GitHub master branch (or merge PR)</li>
+              <li>GitHub pings your CI server using post-receive hook</li>
+              <li><em>"Yo Jenkins, the repository was updated!"</em></li>
+              <li>CI server pulls the new code to your staging area</li>
+            </ol>
+            <br>
+            <br>
+            <p class="fragment">Although fairly mundane in terms of CI, the blog post illustrates the basic concepts underlying all of the tasks involving Jenkins.</p>
+          </section>
+          <section>
+            <h2>Use git hooks to test before pushing code</h2>
+            <br>
+            <p class="fragment">Git can be configured to automatically run<br> tasks before or after many of its operations.</p>
+            <br>
+            <p class="fragment">pre-commit hook that runs jshint on your JavaScript.</p>
+            <br>
+            <p class="fragment">pre-push hook that runs Phantomas assertions on your environment. Helps enforce performance budgets.</p>
+          </section>
         </section>
 
         <section>
