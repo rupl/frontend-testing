@@ -17,3 +17,6 @@ examples/grunt/phantomas/screenshots/*
 
 # ignore example grunt-devperf output
 examples/grunt/devperf/reports/*
+
+# ignore wraith output
+examples/wraith/shots
