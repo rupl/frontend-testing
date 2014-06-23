@@ -171,6 +171,8 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
   });
 
   // This code runs all the tests that we defined above.
+  //
+  // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#done
   casper.run(function () {
     test.done();
   });
