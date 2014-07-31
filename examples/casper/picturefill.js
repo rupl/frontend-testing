@@ -25,14 +25,14 @@ casper.test.begin('Testing Picturefill', 5, function suite(test) {
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#assertexists
     test.assertExists('picture', '<picture> element found.');
 
-    // Now verify that the <picture> tag has three <source> tags. This is
+    // Now verify that the <picture> tag has two <source> tags. This is
     // another query selector. In a more complex test you will need to write
     // a more specific selector. This will find all <source> tags within all
     // <picture> tags in your document. This demo only has one <picture> tag
     // so the simple selector works fine.
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#assertelementcount
-    test.assertElementCount('picture > source', 3);
+    test.assertElementCount('picture > source', 2);
 
     // Before running any viewport-specific tests, set the viewport to 320x480.
     // PhantomJS has a default viewport of 400x300 and CasperJS does not alter
