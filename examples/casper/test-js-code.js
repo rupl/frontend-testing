@@ -16,8 +16,7 @@ casper.test.begin('Basic code tests for jQuery and Modernizr', 3, function suite
   test.comment('⌚️  Opening http://fourword.fourkitchens.com...');
 
   // casper.start() always wraps your first action. The first argument should
-  // be the URL of the page you want to test. Instead of being hard-coded, ours
-  // comes from the config object we defined above.
+  // be the URL of the page you want to test.
   //
   // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#start
   casper.start('http://fourword.fourkitchens.com', function () {
@@ -26,7 +25,7 @@ casper.test.begin('Basic code tests for jQuery and Modernizr', 3, function suite
     //
     // assertEvalEquals provides an easy way for us to test JavaScript variables
     // within the test environment. Any code within the assertEvalEquals() code
-    // block is considered to be part of the webpage, as if we are typing into
+    // block is considered to be part of the web page, as if we are typing into
     // the JS console of the fully-loaded page.
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#assertevalequals
