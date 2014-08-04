@@ -1,6 +1,6 @@
 /**
  * @file
- *   Using CasperJS to run basic unit tests on various libraries.
+ *   Using CasperJS to run tests on various libraries.
  */
 
 // Define the suite of tests and give it the following properties:
@@ -9,7 +9,7 @@
 // - suite(), which contains all of your tests.
 //
 // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#begin
-casper.test.begin('Basic unit tests for jQuery and Modernizr', 3, function suite(test) {
+casper.test.begin('Basic code tests for jQuery and Modernizr', 3, function suite(test) {
   // You can output comments at any point in your script. Sometimes it's good
   // to add a message when you're attempting an operation that might take a
   // few moments to respond, such as this page load.
