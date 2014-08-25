@@ -19,7 +19,7 @@ var config = {
 // - suite(), which contains all of your tests.
 //
 // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#begin
-casper.test.begin('Testing navigation and forms', 1, function suite(test) {
+casper.test.begin('Testing navigation and forms', 2, function suite(test) {
   test.comment('⌚️  Loading ' + config.url + '...');
 
   // casper.start() always wraps your first action. The first argument should
@@ -56,6 +56,34 @@ casper.test.begin('Testing navigation and forms', 1, function suite(test) {
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#asserturlmatch
     test.assertUrlMatch(/\/\/fourkitchens\.com/, 'Navigation successful. New location is ' + this.getCurrentUrl());
+
+    // Report that we're attempting to use keyboard nav.
+    test.comment('⌚️  Using keyboard nav to visit contact form...');
+
+    // casper.sendKeys() allows us to simulate pressing one or more keys on the
+    // keyboard. You can use this to trigger a JS event listener, enter text
+    // into an <input> or element with `contenteditable` attribute, or use it
+    // to test keyboard navigation.
+    //
+    // Our use-case is triggering the `accesskey` property on one of the menu
+    // items, selecting the <body> works just fine. If you want to test a
+    // specific <input> or editable element, the function can accept a more
+    // specific selector.
+    //
+    // In this case we're pressing a combo: Ctrl+Alt+C, which is the way to use
+    // keyboard navigation in PhantomJS. We do this passing the options object
+    // to sendKeys() and specifying a `modifiers` value. You can find all the
+    // possible modifier keys in the second docs link.
+    //
+    // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#sendkeys
+    // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#options
+    this.sendKeys('body', 'c', {modifiers: 'ctrl+alt'});
+  });
+
+  casper.then(function() {
+    // Check the URL again to confirm navigation. Look earlier in this file for
+    // explanation and docs link for test.assertUrlMatch().
+    test.assertUrlMatch(/contact/, 'Navigation successful. New location is ' + this.getCurrentUrl());
   });
 
   // This code runs all the tests that we defined above.
