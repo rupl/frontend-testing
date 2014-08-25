@@ -10,7 +10,16 @@
 
 // This will hold all of the content that Casper needs to supply.
 var config = {
-  url: 'http://fourword.fourkitchens.com/article/simulate-user-actions-casperjs'
+  url: 'http://fourword.fourkitchens.com/article/simulate-user-actions-casperjs',
+};
+
+// We are filling out a form later.
+// We'll store the form contents in `config` too.
+config.form = {
+  "name": "Chris Ruppel",
+  "email": "chris@fourkitchens.com",
+  "project-title": "CasperJS Test Project",
+  "project-desc": "CasperJS Test Project Description"
 };
 
 // Define the suite of tests and give it the following properties:
@@ -19,7 +28,7 @@ var config = {
 // - suite(), which contains all of your tests.
 //
 // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#begin
-casper.test.begin('Testing navigation and forms', 2, function suite(test) {
+casper.test.begin('Testing navigation and forms', 4, function suite(test) {
   test.comment('⌚️  Loading ' + config.url + '...');
 
   // casper.start() always wraps your first action. The first argument should
@@ -49,7 +58,7 @@ casper.test.begin('Testing navigation and forms', 2, function suite(test) {
   // cannot perform any further actions if we failed to authenticate.
   //
   // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#then
-  casper.then(function() {
+  casper.then(function () {
     // test.assertUrlMatch() allows us to run a regular expression against the
     // current URL that Casper has loaded. Since we have moved from a subdomain
     // to our main domain, it's a simple regex.
@@ -80,10 +89,36 @@ casper.test.begin('Testing navigation and forms', 2, function suite(test) {
     this.sendKeys('body', 'c', {modifiers: 'ctrl+alt'});
   });
 
-  casper.then(function() {
+  casper.then(function () {
     // Check the URL again to confirm navigation. Look earlier in this file for
     // explanation and docs link for test.assertUrlMatch().
     test.assertUrlMatch(/contact/, 'Navigation successful. New location is ' + this.getCurrentUrl());
+
+    // casper.fill() allows us to quickly fill out a form with a minimal amount
+    // of code. If you can write a JSON object, you already know how to fill
+    // forms in Casper.
+    //
+    // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#fill
+    casper.fill('#contact', config.form, false);
+  });
+
+  casper.then(function () {
+    // Look for the information we just populated within the form.
+    //
+    // assertEvalEquals provides an easy way for us to test JavaScript within
+    // the test environment. Any code within the assertEvalEquals() code block
+    // is considered to be part of the web page, as if we are typing into the
+    // browser's JS console of the fully-loaded page.
+    //
+    // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#assertevalequals
+    test.assertEvalEquals(function () {
+      return $('#contact input[name="name"]').val();
+    }, config.form.name, 'The name was filled out properly.');
+
+    // Check the email using test.assertEvalEquals() too.
+    test.assertEvalEquals(function () {
+      return $('#contact input[name="email"]').val();
+    }, config.form.email, 'The email was filled out properly.');
   });
 
   // This code runs all the tests that we defined above.
