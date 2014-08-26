@@ -17,7 +17,7 @@ var config = {
 // We'll store the form contents in `config` too.
 config.form = {
   "name": "Chris Ruppel",
-  "email": "chris@fourkitchens.com",
+  "email": "me@example.com",
   "project-title": "CasperJS Test Project",
   "project-desc": "CasperJS Test Project Description"
 };
