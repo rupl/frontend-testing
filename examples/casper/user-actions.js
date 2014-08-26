@@ -64,7 +64,7 @@ casper.test.begin('Testing navigation and forms', 4, function suite(test) {
     // to our main domain, it's a simple regex.
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#asserturlmatch
-    test.assertUrlMatch(/\/\/fourkitchens\.com/, 'Navigation successful. New location is ' + this.getCurrentUrl());
+    test.assertUrlMatch(/\/\/fourkitchens\.com/, 'New location is ' + this.getCurrentUrl());
 
     // Report that we're attempting to use keyboard nav.
     test.comment('⌚️  Using keyboard nav to visit contact form...');
@@ -92,7 +92,7 @@ casper.test.begin('Testing navigation and forms', 4, function suite(test) {
   casper.then(function () {
     // Check the URL again to confirm navigation. Look earlier in this file for
     // explanation and docs link for test.assertUrlMatch().
-    test.assertUrlMatch(/contact/, 'Navigation successful. New location is ' + this.getCurrentUrl());
+    test.assertUrlMatch(/contact/, 'New location is ' + this.getCurrentUrl());
 
     // casper.fill() allows us to quickly fill out a form with a minimal amount
     // of code. If you can write a JSON object, you already know how to fill
