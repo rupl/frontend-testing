@@ -1,6 +1,7 @@
 /**
  * @file
- *   Testing a demo of Drupal. The script will log in and check for various
+ *   Testing a demo of Drupal. Your test environment MUST be located at
+ *   http://drupal.dev — The script will log in and check for various
  *   features in Drupal core. This demo was inspired by a similar script for
  *   a Wordpress site. The original script was written by Henrique Vicente.
  *
@@ -9,10 +10,10 @@
 
 // Set up variables to visit a URL and log in.
 var config = {
-  'host': 'http://demo.opensourcecms.com/drupal',
+  'host': 'http://drupal.dev',
   'form': {
     'name': 'admin',
-    'pass': 'demo123'
+    'pass': 'admin'
   }
 };
 
@@ -89,7 +90,7 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     // the Standard installation profile in Drupal 7.
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#click
-    this.click('a[href="/drupal/admin/content"]');
+    this.click('a[href="/admin/content"]');
 
     // Log the click to the console so we know why it's pausing momentarily.
     test.comment('Clicking the Content admin link...');
@@ -110,7 +111,7 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     // are the same as test.assertTitleMatch()
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#asserturlmatch
-    test.assertUrlMatch(/drupal\/node#overlay=admin\/content/, 'Overlay updated the URL to drupal/node#overlay=admin/content');
+    test.assertUrlMatch(/node#overlay=admin\/content/, 'Overlay updated the URL to /node#overlay=admin/content');
 
     // Instead of clicking another link, we want to load the node/add/page page
     // without our dear friend, the Overlay. casper.open() simply loads a new
