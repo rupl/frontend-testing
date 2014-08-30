@@ -136,14 +136,29 @@
             </ul>
           </section>
           <section>
-            <pre><code class="language-bash"># examples/casper
-$ brew install casperjs --devel
-
-# test the canonical picturefill demo
-$ casperjs test picturefill.js
-
-# test a Drupal demo site, log in, add content
+            <h2>Test frontend components</h2>
+            <br>
+            <pre><code class="language-bash"># test the canonical picturefill demo
+$ casperjs test picturefill.js</code></pre>
+            <br>
+            <p class="fragment"><a href="http://fourword.fourkitchens.com/article/using-casperjs-test-picturefill">Read the blog post</a> or <a href="https://www.youtube.com/watch?v=3qNdxjfgbAg">watch a screencast</a><br> describing this test in detail.</p>
+          </section>
+          <section>
+            <h2>Simulate user actions</h2>
+            <br>
+            <pre><code class="language-bash"># test simple user actions like clicking,
+# keyboard navigation, filling forms
+$ casperjs test user-actions.js</code></pre>
+            <br>
+            <p class="fragment"><a href="http://fourword.fourkitchens.com/article/simulate-user-actions-casperjs">Read the blog post</a> describing this test in detail.</p>
+          </section>
+          <section>
+            <h2>Test author<br> workflow in Drupal</h2>
+            <br>
+            <pre><code class="language-bash"># test a Drupal demo site, log in, add content
 $ casperjs test drupal.js</code></pre>
+            <br>
+            <p class="fragment">Blog post and video coming in<br> a few days! Check back soon.</p>
           </section>
         </section>
 
