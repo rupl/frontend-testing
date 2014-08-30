@@ -223,6 +223,7 @@ $ phantomas --url http://gruntjs.com --assert-requests=20
             <img src="img/grunt-phantomas-graph.png" alt="Graph displaying a spike in CSS size." style="position: relative; top: -2em;">
           </section>
           <section>
+            <br>
             <pre><code class="language-bash"># examples/grunt/phantomas
 $ grunt phantomas:default
 
@@ -240,24 +241,6 @@ $ grunt phantomas:requests</code></pre>
             <p class="fragment">The idea is simple: <a href="http://timkadlec.com/2013/01/setting-a-performance-budget/">performance budgets</a> are just like a monthy expense budget. We should keep track of how fat our sites grow over time.</p>
             <br>
             <p class="fragment">grunt-phantomas is working on performance budget features that will <a href="https://github.com/stefanjudis/grunt-phantomas/issues/86">record and visualize over-budget metrics</a> according to your constraints.</p>
-          </section>
-          <section>
-            <h2>grunt-devperf</h2>
-            <br><br>
-            <p class="fragment">This tool is built upon Phantomas and grunt-phantomas, and offers some assertion-based reporting. It is another attempt to help monitor performance budgets.</p>
-            <br>
-          </section>
-          <section>
-            <pre><code class="language-bash"># examples/grunt/devperf
-$ npm install
-
-# run report
-$ grunt devperf
-</code></pre>
-            <small><a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples/grunt/devperf/Gruntfile.js">View code on GitHub</a></small>
-          </section>
-          <section>
-            <img src="img/grunt-devperf-graph.png" alt="Graph displaying grunt-devperf output" width="960" style="position: relative; top: -1em; ">
           </section>
           <section>
             <h2>grunt-perfbudget</h2>
