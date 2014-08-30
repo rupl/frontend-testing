@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         // See all options here:
         // https://github.com/tkadlec/grunt-perfbudget#options
         options: {
-          url: 'http://iamcarrico.com',
+          url: 'https://iamcarrico.com',
           key: settings.key,
           budget: {
             render: 800,
