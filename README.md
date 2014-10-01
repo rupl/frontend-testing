@@ -13,4 +13,6 @@ snippets to help get you started.
 
 ## Presented at:
 
-* [DrupalCon Austin 2014](https://austin2014.drupal.org/session/automated-frontend-testing)
+* [DrupalCon Austin](https://austin2014.drupal.org/session/automated-frontend-testing)
+* [Frontend United](http://frontendunited.org/session-info/frontend-testing-functional-performance-testing-visual-comparisons)
+* [DrupalCon Amsterdam](https://amsterdam2014.drupal.org/session/automated-frontend-testing)
