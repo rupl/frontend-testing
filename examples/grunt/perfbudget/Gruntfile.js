@@ -1,7 +1,7 @@
 // The settings var includes your WebPageTest API Key. To use yours, first go to
-// the following URL and follow the instructions to get a key:
+// the following URL to get a key:
 //
-// @see http://www.webpagetest.org/forums/showthread.php?tid=466
+// @see http://www.webpagetest.org/getkey.php
 //
 // Now make a file called settings.json in the same dir as this
 // Gruntfile and include an object like this:
