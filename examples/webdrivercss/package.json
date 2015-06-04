@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "webdrivercss": "^1.1.3",
+    "webdriverio": "^2.4.5"
+  },
+  "devDependencies": {
+    "chalk": "^1.0.0"
+  }
+}

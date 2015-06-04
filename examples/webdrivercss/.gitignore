@@ -1,0 +1,5 @@
+visual/failed/*
+visual/reference/*
+~visual/reference/*baseline*
+
+browserstack.json
