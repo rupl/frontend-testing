@@ -5,7 +5,7 @@
 
     <title>Automated Frontend Testing</title>
 
-    <meta name="description" content="Automated Frontend Testing &mdash; a slides describing how to perform functional testing with CasperJS and performance monitoring with grunt-phantomas and WebPageTest.org">
+    <meta name="description" content="Automated Frontend Testing &mdash; slides describing how to perform functional testing with CasperJS, WebDriver, and BrowserStack.">
     <meta name="author" content="Chris Ruppel">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,24 +54,23 @@
             <a href="http://fourkitchens.com"><img src="img/4k-logo-square-500px.png" alt="Four Kitchens" style="border: 0; box-shadow: none; "></a><br>
             <!-- <small><a href="http://fourkitchens.com/careers">(we're hiring!)</a></small> -->
           </section>
-          <section>
+          <!-- <section>
             <br><br>
             <p style="font-size: 1.25em;">I contribute and present about open source:</p><br>
             <ul class="fragment">
               <li><a href="http://rupl.github.io/unfold/">Unfolding the Box Model</a>
               <li><a href="https://www.drupal.org/project/modernizr">Modernizr Drupal module</a>
-              <!-- <li><a href="https://www.drupal.org/project/web_components">Web Components API</a></li> -->
               <li><a href="https://www.drupal.org/project/fastclick">FastClick Drupal module</a>
-              <li><a href="https://www.drupal.org/sandbox/joel/2121797">Prerender/Prefetch Drupal module</a>
+              <li><a href="http://fourword.fourkitchens.com/blog/series/webperf-wednesday">Webperf Wednesday series</a>
             </ul>
-          </section>
+          </section> -->
         </section>
 
         <section>
-          <h2>Why do I need frontend testing?</h2>
+          <h2>Why do I need functional testing on the frontend?</h2>
           <section>
             <br>
-            <p>There are untold number of subtle<br> errors that can occur on the frontend.</p>
+            <p>Subtle frontend errors:</p>
             <br>
             <ul>
               <li class="fragment">Minor CSS changes that throw things off</li>
@@ -80,59 +79,36 @@
               <li class="fragment">Performance regressions<br><br></li>
             </ul>
           </section>
-          <section>
-            <br>
-            <p>Additionally, frontend development is<br> becoming more critical as the trade matures.</p>
-            <br>
-            <p class="fragment">We need the same testing abilities<br> that the backend has had for years.</p>
-          </section>
-          <section>
-            <br>
-            <ul>
-              <li class="fragment">Testing page load times</li>
-              <li class="fragment">Testing render speeds</li>
-              <li class="fragment">Sticking to a performance budget</li>
-              <li class="fragment">Verifying visual changes</li>
-              <li class="fragment">Accountability for code changes</li>
-            </ul>
-          </section>
-        </section>
-
-        <section data-state="soothe">
-          <section>
-            <h2>workflow_alter()</h2>
-            <br>
-            <p>In order to deliver the best, fastest site possible, we have to change our development processes.</p>
-            <br>
-            <blockquote class="fragment" cite="http://www.igvita.com/slides/2013/io-pagespeed.pdf"><q>Performance is not a checklist, it's a<br> <strong>continuous</strong> process.</q> — <a href="http://www.igvita.com/slides/2013/io-pagespeed.pdf">Ilya Grigorik</a></blockquote>
-            <br>
-            <blockquote class="fragment" cite="http://www.netmagazine.com/features/speeding-mobile-html5-experiences"><q>&hellip;don’t take measures without measuring them.</q><br> — <a href="http://www.netmagazine.com/features/speeding-mobile-html5-experiences">Maximiliano Firtman</a></blockquote>
-          </section>
-        </section>
-
-        <section>
-            <h1>YES</h1>
-            <br>
-            <p class="fragment">The slides AND code are on GitHub, I will tweet the link. Yes, you may <a href="https://github.com/rupl/frontend-testing/blob/gh-pages/LICENSE.md">take code from the slides</a> and use it for any purpose :)</p>
-            <br>
-            <p class="fragment">This presentation is using a fresh clone of these slides, using the many <a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples">examples I provided in the repo</a>.</p>
         </section>
 
         <section>
           <section data-state="blackout">
             <br>
-            <h1>Functional testing</h1>
+            <h1>CasperJS</h1>
           </section>
           <section>
-            <h2>CasperJS</h2>
             <p>Casper allows for scripted actions to be tested. It uses PhantomJS under the hood.</p>
             <br>
             <ul>
+              <li class="fragment">It runs fast!</li>
               <li class="fragment">Run the same test with multiple screen sizes.</li>
               <li class="fragment">Test complex features or components.</li>
               <li class="fragment">Automate complex user actions.</li>
               <li class="fragment">Test content creation, transactions, other features.</li>
               <li class="fragment">Keep an eye on problematic pages.</li>
+              <li class="fragment">If you can write jQuery, you can write CasperJS</li>
+              <li class="fragment">Easy to run against local and remote environments</li>
+              <li class="fragment"><a href="https://drupalize.me/blog/201410/using-remote-debugger-casperjs-and-phantomjs">Can be debugged remotely</a> (really helpful!!)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Cons</h2>
+            <br>
+            <ul>
+              <li class="fragment">It uses old WebKit. <span class="fragment">(534.34)</span></li>
+              <li class="fragment"><em>Very old WebKit</em> <span class="fragment">(Safari 5 / Chrome 13)</span></li>
+              <li class="fragment">CasperJS will be using Phantom 1.9.x<br> for the foreseeable future.</li>
+              <li class="fragment">OS/Browser coverage is limited to one combo</li>
             </ul>
           </section>
           <section>
@@ -171,117 +147,7 @@ $ casperjs test drupal.js</code></pre>
         <section>
           <section data-state="blackout">
             <br>
-            <h1>Performance Testing</h1>
-          </section>
-          <section>
-            <h2>Automating PageSpeed</h2>
-            <br>
-            <p class="fragment">Google has a service called <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> that grades your site and boils down tons of factors into a "speed index"</p>
-            <br>
-            <p class="fragment">
-              Testing sites can be automated. <a href="https://developers.google.com/speed/docs/insights/v1/getting_started#auth">Get your API key first</a>.
-              <br><br>
-            </p>
-          </section>
-          <section>
-            <h2>grunt-pagespeed</h2>
-            <br>
-            <p><a href="https://developers.google.com/speed/docs/insights/v1/getting_started">PageSpeed API</a> is documented quite<br> thoroughly, but there's also a <a href="https://github.com/jrcryer/grunt-pagespeed">grunt plugin</a>.</p>
-            <br>
-            <pre><code class="language-bash"># examples/grunt/pagespeed
-$ npm install
-$ grunt # runs default task
-$ grunt pagespeed:mobile # runs mobile task</code></pre>
-            <br>
-            <small><a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples/grunt/pagespeed/Gruntfile.js">View code on GitHub</a></small>
-          </section>
-          <section>
-            <h2>gulp + pagespeed</h2>
-            <br>
-            <p>Una Kravets wrote up an excellent walkthrough for <a href="http://una.im/gulp-local-psi/">gulp + pagespeed + local development</a></p>
-            <br><br>
-            <p class="fragment">See the Four Kitchens<br> <a href="https://github.com/fourkitchens/frontend-perf/blob/398d19071e5eaff874e05b9ed43059ccf94a7a1d/gulpfile.js#L306-L338">frontend performance training</a><br> for an alternate implementation</p>
-          </section>
-          <section>
-            <h2>Phantomas</h2>
-            <br>
-            <p class="fragment"><a href="https://github.com/macbre/phantomas">Phantomas</a> is a PhantomJS-based<br> web performance metrics tool</p>
-            <br>
-            <p class="fragment">It gives you loads of data about how the<br> frontend of your website is performing.</p>
-            <br>
-            <p class="fragment">The <a href="https://github.com/macbre/phantomas#usage">usage guide</a> is extensive.</p>
-          </section>
-          <section>
-            <br>
-            <pre><code class="language-bash"># run a basic report
-$ phantomas --url http://gruntjs.com
-
-# set viewport dimensions, generate images of rendering process
-$ phantomas --url http://gruntjs.com --viewport=320x480 --film-strip
-
-# assert a test for total number of requests
-$ phantomas --url http://gruntjs.com --assert-requests=20
-</code></pre>
-          </section>
-          <section>
-            <h2>grunt-phantomas</h2>
-            <br>
-            <p class="fragment">This grunt plugin is not just a wrapper for running the tool.</p>
-            <br>
-            <p class="fragment">It provides detailed reports that track your data over time, allowing you to identify trends using dynamic charts that update themselves each time you run the grunt task</p>
-            <br>
-          </section>
-          <section>
-            <img src="img/grunt-phantomas-graph.png" alt="Graph displaying a spike in CSS size." style="position: relative; top: -2em;">
-          </section>
-          <section>
-            <br>
-            <pre><code class="language-bash"># examples/grunt/phantomas
-$ grunt phantomas:default
-
-# run report and generate screenshot
-$ grunt phantomas:screenshot
-
-# test for certain values. this might cause failure!
-$ grunt phantomas:requests</code></pre>
-            <br>
-            <small><a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples/grunt/phantomas/Gruntfile.js">View code on GitHub</a></small>
-          </section>
-          <section>
-            <h2>Performance Budgets</h2>
-            <br>
-            <p class="fragment">The idea is simple: <a href="http://timkadlec.com/2013/01/setting-a-performance-budget/">performance budgets</a> are just like a monthy expense budget. We should keep track of how fat our sites grow over time.</p>
-            <br>
-            <p class="fragment">grunt-phantomas has <a href="https://github.com/stefanjudis/grunt-phantomas/issues/86">performance budget features</a> that visualize over-budget metrics that you set.</p>
-          </section>
-          <section>
-            <h2>grunt-perfbudget</h2>
-            <br>
-            <p class="fragment">Tim Kadlec, who first suggested performance budgets, released this tool to help teams meet their goals.</p>
-            <br>
-            <p class="fragment">grunt-perfbudget relies on the immensely useful <a href="http://webpagetest.org">WebPageTest</a> API to enforce a budget.</p>
-            <br>
-            <p class="fragment">WebPageTest.org and its API are much more flexible than PhantomJS tools, because it can leverage multiple browsers, geographic locations, and network speeds.</p>
-          </section>
-          <section>
-            <pre><code class="language-bash"># examples/grunt/perfbudget
-$ npm install
-
-# run report
-$ grunt perfbudget
-</code></pre>
-            <small><a href="https://github.com/rupl/frontend-testing/tree/gh-pages/examples/grunt/perfbudget/Gruntfile.js">View code on GitHub</a></small>
-          </section>
-          <section>
-            <img src="img/grunt-perfbudget-output.png" alt="Output of grunt-perfbudget task" width="960" style="position: relative; top: -1em; ">
-            <p><small><a href="http://www.webpagetest.org/result/140529_CK_5V7/">View this result on webpagetest.org</a></small></p>
-          </section>
-        </section>
-
-        <section>
-          <section data-state="blackout">
-            <br>
-            <h1>CSS Regression testing</h1>
+            <h1>Visual Regression testing</h1>
           </section>
           <section>
             <br>
@@ -294,6 +160,7 @@ $ grunt perfbudget
           <section>
             <h2>Wraith</h2>
             <p class="fragment">Wraith is the easiest way to take screenshots of two environments, producing a visual diff.</p>
+            <p class="fragment">It can catch tiny errors that the human eye might miss.</p>
             <img class="fragment" src="img/wraith-example.png">
           </section>
           <section>
@@ -316,6 +183,20 @@ $ open shots/gallery.html</code></pre>
             <p class="fragment">However, it has support for multiple configs, so several config files in one repo allows for multiple comparisons.</p>
             <br>
             <p class="fragment"><a href="https://github.com/BBC-News/wraith#wraith">Read more on GitHub</a></p>
+          </section>
+          <section>
+            <h2>WebDriverCSS <span class="fragment">+ BrowserStack</span></h2>
+            <br>
+            <p class="fragment">WebDriverIO is a node.js extension<br> for Selenium WebDriver.</p>
+            <br>
+            <p class="fragment">All the power of Casper, but on<br><a href="https://www.browserstack.com/list-of-browsers-and-platforms?product=automate">700+ device/OS/browser combos!</a></p>
+          </section>
+          <section>
+            <pre><code class="language-bash"># examples/webdrivercss
+$ npm install
+
+# run the test
+$ node webdrivercss.browserstack.js</code></pre>
           </section>
         </section>
 
@@ -397,7 +278,7 @@ $ open shots/gallery.html</code></pre>
           </ul>
         </section>
 
-        <section data-state="blackout">
+        <section data-state="bluesy">
           <h1>Questions?</h1>
           <br>
           <p>Contact me:</p>

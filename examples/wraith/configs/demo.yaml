@@ -13,7 +13,7 @@ directory:
 # Add only 2 domains, key will act as a label
 domains:
   live: "http://fourkitchens.com"
-  dev: "http://localhost:4000"
+  dev: "http://localhost:3000"
 
 #Type screen widths below, here are a couple of examples
 screen_widths:
