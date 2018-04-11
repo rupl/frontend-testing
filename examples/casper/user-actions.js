@@ -2,25 +2,21 @@
  * @file
  *   Simulating user actions with CasperJS. This script explores the ability to
  *   use Casper for navigation just like a user would: clicking the page and
- *   entering text to submit a form. This script accompanies a blog post from
- *   Four Kitchens:
- *
- * @see http://fourword.fourkitchens.com/article/simulate-user-actions-casperjs
+ *   entering text to submit a form.
  */
 
-// This will hold all of the content that Casper needs to supply.
+// This object will hold all of the config/content that Casper needs to supply.
 var config = {
-  url: 'http://fourword.fourkitchens.com/article/simulate-user-actions-casperjs',
+  url: 'https://rupl.github.io/frontend-testing/examples/targets/test-user-actions-p1.html',
+  form: {
+    "name": "Chris Ruppel",
+    "email": "me@example.com",
+    "project-title": "CasperJS Test Project",
+    "project-desc": "CasperJS Test Project Description",
+    "project-type": "freelance",
+  }
 };
 
-// We are filling out a form later.
-// We'll store the form contents in `config` too.
-config.form = {
-  "name": "Chris Ruppel",
-  "email": "me@example.com",
-  "project-title": "CasperJS Test Project",
-  "project-desc": "CasperJS Test Project Description"
-};
 
 // Define the suite of tests and give it the following properties:
 // - Title, which shows up before any of the pass/fails.
@@ -28,8 +24,8 @@ config.form = {
 // - suite(), which contains all of your tests.
 //
 // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#begin
-casper.test.begin('Testing navigation and forms', 4, function suite(test) {
-  test.comment('⌚️  Loading ' + config.url + '...');
+casper.test.begin('Testing navigation and forms', 7, function suite(test) {
+  test.comment('⌚️  Loading ' + config.url);
 
   // casper.start() always wraps your first action. The first argument should
   // be the URL of the page you want to test. Instead of being hard-coded, ours
@@ -46,10 +42,10 @@ casper.test.begin('Testing navigation and forms', 4, function suite(test) {
     // "a" would not be specific enough.
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#click
-    this.click('header p a:first-child');
+    this.click('nav li:first-child a');
 
     // Log the click to the console so we know why it's pausing momentarily.
-    test.comment('⌚️  Clicking the Fourkitchens.com link...');
+    test.comment('⌚️  Clicking the "Contact us" link...');
   });
 
   // casper.then() allows us to wait until previous tests and actions are
@@ -60,14 +56,13 @@ casper.test.begin('Testing navigation and forms', 4, function suite(test) {
   // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#then
   casper.then(function () {
     // test.assertUrlMatch() allows us to run a regular expression against the
-    // current URL that Casper has loaded. Since we have moved from a subdomain
-    // to our main domain, it's a simple regex.
+    // current URL that Casper has loaded.
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#asserturlmatch
-    test.assertUrlMatch(/\/\/fourkitchens\.com/, 'New location is ' + this.getCurrentUrl());
+    test.assertUrlMatch(/test-user-actions-p2/, 'New location is ' + this.getCurrentUrl());
 
     // Report that we're attempting to use keyboard nav.
-    test.comment('⌚️  Using keyboard nav to visit contact form...');
+    test.comment('⌚️  Using keyboard nav to visit contact page...');
 
     // casper.sendKeys() allows us to simulate pressing one or more keys on the
     // keyboard. You can use this to trigger a JS event listener, enter text
@@ -92,7 +87,7 @@ casper.test.begin('Testing navigation and forms', 4, function suite(test) {
   casper.then(function () {
     // Check the URL again to confirm navigation. Look earlier in this file for
     // explanation and docs link for test.assertUrlMatch().
-    test.assertUrlMatch(/contact/, 'New location is ' + this.getCurrentUrl());
+    test.assertUrlMatch(/test-user-actions-p3/, 'New location is ' + this.getCurrentUrl());
 
     // casper.fill() allows us to quickly fill out a form with a minimal amount
     // of code. If you can write a JSON object, you already know how to fill
@@ -112,13 +107,28 @@ casper.test.begin('Testing navigation and forms', 4, function suite(test) {
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#assertevalequals
     test.assertEvalEquals(function () {
-      return $('#contact input[name="name"]').val();
-    }, config.form.name, 'The name was filled out properly.');
+      return $('#contact [name="name"]').val();
+    }, config.form.name, 'The name was filled out.');
 
-    // Check the email using test.assertEvalEquals() too.
+    // Check the email.
     test.assertEvalEquals(function () {
-      return $('#contact input[name="email"]').val();
-    }, config.form.email, 'The email was filled out properly.');
+      return $('#contact [name="email"]').val();
+    }, config.form.email, 'The email was filled out.');
+
+    // Check the project title.
+    test.assertEvalEquals(function () {
+      return $('#contact [name="project-title"]').val();
+    }, config.form['project-title'], 'The project title was filled out.');
+
+    // Check the project description.
+    test.assertEvalEquals(function () {
+      return $('#contact [name="project-desc"]').val();
+    }, config.form['project-desc'], 'The project description was filled out.');
+
+    // Check the project type.
+    test.assertEvalEquals(function () {
+      return $('#contact [name="project-type"]').val();
+    }, config.form['project-type'], 'A project type was selected.');
   });
 
   // This code runs all the tests that we defined above.

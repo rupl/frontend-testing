@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Testing JS Code with CasperJS</title>
+    <style type="text/css">
+      body {
+        box-sizing: border-box;
+        max-width: 36em;
+        padding: 1em;
+        margin: 0 auto;
+        font-size: 1.2em;
+        font-family: "Roboto Mono", monospace;
+      }
+      fieldset {
+        border: 1px solid #bbb;
+      }
+      label {
+        display: block;
+        color: #999;
+        font-size: .8em;
+        margin-bottom: .5em;
+      }
+      input {
+        width: 300px;
+        color: #333;
+        font-size: 1.1em;
+      }
+      textarea {
+        display: block;
+        color: #333;
+        font-size: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CasperJS — Testing user actions</h1>
+    <p>This page exists to offer a stable testing target for an <a href="https://github.com/rupl/frontend-testing/blob/gh-pages/examples/casper/user-actions.js">example CasperJS script</a>.</p>
+    <p>Learn more about <a href="https://rupl.github.io/frontend-testing/">automated frontend testing</a>.</p>
+    <br>
+
+    <form id="contact" action="#">
+      <fieldset>
+        <legend>Contact information</legend>
+        <label>Name: <input name="name" type="text" placeholder="Your Name"></label>
+        <label>Email: <input name="email" type="email" placeholder="you@example.com"></label>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>Project information</legend>
+        <label>Project Title: <input name="project-title" type="text" placeholder="Enter the name of your project"></label><br>
+        <label><textarea name="project-desc" rows="4" cols="60" placeholder="Enter a brief description of your project"></textarea></label>
+        <label>Freelance <input name="project-type" type="radio" value="freelance"></label>
+        <label>Full-time <input name="project-type" type="radio" value="full-time">
+      </fieldset>
+      <p><em>This is a sample form which has no submit button.</em></p>
+    </form>
+
+    <script src="jquery-3.3.1-min.js"></script>
+  </body>
+</html>
