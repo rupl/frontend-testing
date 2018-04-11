@@ -1,16 +1,20 @@
 /**
  * @file
- *   Testing a demo of Drupal. Your test environment MUST be located at
- *   http://drupal.dev — The script will log in and check for various
+ *   Testing a demo of Drupal. Your test environment MUST exist at the URL in
+ *   the `host` property — The script will log in and check for various
  *   features in Drupal core. This demo was inspired by a similar script for
  *   a Wordpress site. The original script was written by Henrique Vicente.
+ *
+ *   NOTE: this file assumes that Drupal's "clean urls" are enabled. If the
+ *   URLs are in a format such as "?q=node/add/page" instead of "/node/add/page"
+ *   the clean URLs need to be enabled before tests that match URLs can pass.
  *
  * @see https://github.com/henvic/phantom-casper-simple-talk/blob/master/wordpress.js
  */
 
 // Set up variables to visit a URL and log in.
 var config = {
-  'host': 'http://drupal.dev',
+  'host': 'http://casper-drupal.test',
   'form': {
     'name': 'admin',
     'pass': 'admin'
@@ -77,7 +81,9 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#asserthttpstatus
     test.assertHttpStatus(200, "Authentication successful");
+  })
 
+  casper.then(function() {
     // Now that we're logged in, check for the `logged-in` class that is appended
     // to the <body> tag for all authenticated Drupal traffic.
     //
@@ -90,7 +96,7 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     // the Standard installation profile in Drupal 7.
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#click
-    this.click('a[href="/admin/content"]');
+    this.click('#toolbar-link-admin-content');
 
     // Log the click to the console so we know why it's pausing momentarily.
     test.comment('⌚️  Clicking the Content admin link...');
@@ -105,7 +111,7 @@ casper.test.begin('Testing Drupal demo site', 8, function suite(test) {
     // is optional and can be used to provide a more descriptive test result.
     //
     // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#asserttitlematch
-    test.assertTitleMatch(/Content | Drupal Demo Install/, 'Overlay changed page title to contain the word "Content"');
+    test.assertTitleMatch(/^Content.*/, 'Overlay changed page title to begin with the word "Content"');
 
     // We also check that the URL is updated as expected. For science. Arguments
     // are the same as test.assertTitleMatch()

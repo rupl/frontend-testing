@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "dependencies": {
+    "casperjs": "^1.1.4"
+  }
+}
