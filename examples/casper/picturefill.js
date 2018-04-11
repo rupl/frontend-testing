@@ -11,12 +11,13 @@
 //
 // @see http://casperjs.readthedocs.org/en/latest/modules/tester.html#begin
 casper.test.begin('Testing Picturefill', 5, function suite(test) {
+  test.comment('⌚️  Opening https://scottjehl.github.io/picturefill/examples/demo-02.html');
 
   // casper.start() always wraps your first action. The first argument should
   // be the URL of the page you want to test.
   //
   // @see http://casperjs.readthedocs.org/en/latest/modules/casper.html#start
-  casper.start('http://scottjehl.github.io/picturefill/examples/demo-02.html', function () {
+  casper.start('https://scottjehl.github.io/picturefill/examples/demo-02.html', function () {
 
     // First, we look for a <picture> element. The first argument is a query
     // selector, like jQuery or document.querySelectorAll(). Any <picture> tags
